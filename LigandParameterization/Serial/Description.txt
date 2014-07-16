@@ -1,0 +1,11 @@
+LigandParameterizationSerial Workflow - 1.0
+
+TAGS: Electrostatic, Parameterization, TYPES: LigandParameterization, Director: SDF
+
+GENERAL:This workflow parameterize small molecules which uses antechamber and Gaussian09 to calculate electrostatic potential. Amber suite and Gaussian09 must be installed in order to run this workflow. The final output are a new pdb file named LIGAND_NAME-new.pdb, prepc and frcmod file which can be used for any further experiment.
+
+PARAMETERS: c - overall charge of the small ligand. Default is 0 which means the small molecule is neutral.
+	    l - Ligand name.
+            d - Directory where the small molecule pdb is located and where all the sequential jobs will be executed.
+
+USAGE: There are two ways to run this workflow. One is through the graphic interface. After the workflow is opened, users can double click the parameters to change their values and press the play button to start. Another way is to run Kepler through command lines. It is highly recommended that users check the source codes under String Constant before running the workflow to ensure that the commands to execute tleap are suitable for unique systems.
