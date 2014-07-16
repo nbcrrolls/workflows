@@ -1,0 +1,38 @@
+Name 
+    CreateDirectoryCopy  
+Version 
+    1.0
+Class 
+    actor
+Kar 
+    CreateDirectoryCopy_1.0.kar
+Image
+    CreateDirectoryCopy_1.0.png
+Tag 
+    createDirectory 
+Type 
+    Utilities
+Director 
+    PN
+Actor 
+    none
+Purpose 
+    This workflow reads a list of pdb files, creates new directories using the pdb 
+    file names and copies the pdb files to corresponding new directories. 
+Required Software: 
+    Kepler2.4 or above
+Parameters: 
+    d  directory where the pdb files are located and where the new directories will be created.
+
+    p  pattern that the workflow will use to identify all the pdb files. 
+       Default is .*pdb$$. It can also be changed to .*mae$$ or .*sdf$$ 
+       if .mae extension or .sdf extension are provided instead of .pdb extension.
+
+    p2 pattern that will be replaced by an empty string. As a result, only the names of the 
+       gpdb files are retained for creating directories. Default is .pdb. It can be 
+       changed to .*mae$$ or .*sdf$$ if .mae extension or .sdf extension are provided instead of .pdb extension.
+Overview
+Usage 
+    There are two ways to run this workflow. One is through the graphic interface. After the workflow 
+    is opened, users can double click the parameters to change their values and press the play button to 
+    start. Another way is to run Kepler through command lines. 
