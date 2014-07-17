@@ -1,8 +1,19 @@
-GromosClustering Workflow - 1.0
+NAME: GROMOSCLUSTERING Workflow 
+
+VERISON: 1.0.0
+
+CLASS: workflow
+
+kar: GromosClustering_1.0.0.kar
+
+Image: GromosClustering_1.0.0.png
 
 TAGS: NBCROpalServer, cpptraj, TYPES: Clustering, TrajectoryAnalysis DIRECTOR: SDF, ACTORS: TrajectoryListing, PDBCreator, PDBModifier, AtomSelection, Clustering
 
-GENERAL: This clustering workflow enables users to input simulations trajectories and to use gromos clustering method to cluster structures based on rmsd similarity
+PURPOSE: This clustering workflow enables users to input simulations trajectories and to use gromos clustering method to cluster structures based on rmsd similarity
+
+REQUIRED SOFTWARE: Kepler 2.4 or above
+                   AmberTools 12 or 13 (AmberTools 14 is currently under development) 
 
 PARAMETERS: dd - Trajectories directory. This should be the complete path to the trajectories directory. 
             dp - Trajectories pattern. Some acceptable variables are .*pdb$$ (all pdb files in the trajectories directory), .*nc$$ (all nc files), .*mdcrd$$ (all mdcrd files), .*dcd$$ (all dcd files), .+size.*$$ (all files that contains size in the middle), and Size.*$$ (all files that contains Size in the begining)
@@ -16,6 +27,13 @@ PARAMETERS: dd - Trajectories directory. This should be the complete path to the
             s - stride. Users can choose to have a set number of frames for gromos clustering. Default value is 1, no stride. 2 will mean every other frame. 
             cf - cutoff. This is the RMSD cutoff for gromos clustering. A very small rmsd cutoff will cause the program to fail. 
             ac - True or False. If true, alignment will be done on alpha carbon. If false, alignment will be done on the atoms selected also for clustering. Default is False.
+
+OVERVIEW: This workflow composes of five main components.
+The first component takes all the trajectories that need to be cluster and compiles them into one big trajectory file. The trajectories of interest must all be in the same folder.
+The second component uses the long trajectory generated from the first component and converts it to pdb. Pdb files are the input for gromos clustering. The trajectories will be aligned based on user input.
+The third component modifies the pdb files. It deletes the first line of each frame (non-atom information) and changes the ending of each frame from END to ENDMDL. All these modifications are required to prepare gromos clustering input.
+The forth component generates another pdb file for clustering. It creates a pdb file contains all the atom that clustering will be based on. For example, if users want to cluster all the trajectories based on the alpha helix near the protein active site, this component will write a pdb file consists only the alpha helix.
+The fifth component is when clustering actually occurs. First, the pdb input files generated from previous steps are zipped as required by the NBCR gromos clustering web server. Then, the zipped files are sent to the server where clustering happens. After clustering is done, outputs are transferred back to local machine. Two files are downloaded: log file which contains clustering information and a tar.gz file which holds all outputs generated from the NBCR gromos clustering web server.
 
 USAGE: There are two ways to run this workflow. One is through the graphic interface. After the workflow is opened, users can double click the parameters to change their values and press the play button to start. Another way is to run Kepler through command lines. It is recommended to run the clustering workflow from command line.
 	/PATH/./kepler.sh -runkar -nogui -dd -dp -p -wd -cd -rd -ac -as -f -l -s -cf PATH_TO _KAR/kar_file
