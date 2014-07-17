@@ -9,8 +9,8 @@ Kar
 Image
    GromosClustering_1.0.png
 Tag
-   NBCROpalServer
-   cpptraj
+   OpalServer
+   Amber
 Type
    Clustering
    TrajectoryAnalysis
