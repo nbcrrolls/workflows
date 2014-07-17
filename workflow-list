@@ -11,11 +11,11 @@ Actors
     TrajectoryConcatenate
 
 Tags
+    AmberTools 
     OpalServer 
-    cpptraj  - change to Amber
-    Vina
     Matlab
     PDBtoPDBQT
+    Vina
     VMD
     Trajectories - is this really needed?
 
