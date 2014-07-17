@@ -1,0 +1,18 @@
+TrajectoriesConcatenate Workflow - 1.0
+
+OVERVIEW: This workflow takes series of trajectories and concatenate them into one trajectory file named _TRAJ_CONCAT_VMD_(TIME_THE_FILE_IS_CREATED)
+
+REQUIRED SOFTWARE: Kepler 2.4 or above
+		   VMD 1.9.1 or above
+
+PARAMETERS: pa – stands for pattern. Default value is .*dcd$$ which will list all the .dcd files in the assigned directory.
+	d – stands for directory. This should be a complete path that leads to the directory where all .dcd files are located. 
+	p – stands for topology file. This should be a complete path leads to the toplogy file, for example, DIRECTORY/XXX.prmtop.
+	pt – topology type. Some of the acceptable values are parm7 for Amber topology files and psf for CHARMM topology files. Default value is parm
+	tt – trajectory type. Some of the acceptable values are dcd for NAMD trajectories and pdb for PDB files. Default value is dcd.
+	ot – output trajectory type. In here, users indicate the type of output trajectories they want. Default value is dcd.
+	f – first frame. This parameter tells vmd where to start extrapolating trajectories. It will apply to all the individual trajectory files. Default value is 0 (starting from the first frame)
+	l – last frame. This parameter tells vmd where to stop extrapolating trajectories. It will apply to all the individual trajectory files. Default value is -1 (ending at the last frame)
+	s – stride. This parameter tells vmd how many frames to be strided. For example, s = 2 means take every other frames while s = 1 means to take all the frames. Default value is 1.
+
+USAGE: There are two ways to run this workflow. One is through the graphic interface. After the workflow is opened, users can double click the parameters to change their values and press the play button to start. Another way is to run Kepler through command lines.
