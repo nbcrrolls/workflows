@@ -1,0 +1,36 @@
+Workflows
+    GromosClustering
+    VirtualScreening
+    LigandParameterization
+    LigandParameterizationParallel
+
+Actors
+    CreateDirectoryCopy 
+    MatlabStatistic
+    PDBtoPDBQTReceptor
+    TrajectoryConcatenate
+
+Tags
+    OpalServer 
+    cpptraj  - change to Amber
+    Vina
+    Matlab
+    PDBtoPDBQT
+    VMD
+    Trajectories - is this really needed?
+
+Types
+    Clustering 
+    Docking
+    Electrostatic
+    MD Simulation
+    Statistics
+    Utilities
+
+    TrajectoryAnalysis - can this be in Clustering or Electrostatic?
+
+Directors
+    DDF
+    DDP
+    PN
+    SDF

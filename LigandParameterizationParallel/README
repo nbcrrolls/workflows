@@ -1,0 +1,3 @@
+LigandParameterizationParallel Workflow - 1.0
+
+CAUTION:There are limitations of this workflow; so far, parallelization is only done on a local machine. Because gaussian09 quantum mechanic calculation requires one process for each small molecule, five small molecules will use five processor. User can only parallelize numbers of small molecules equal to or less than the number of computer processors. The parameter c that indicated charge applies to all small molecule. If user has five ligands and two out of five are negative 1 charged and other three are neutral, user should run them separately in two sub-directories. 
