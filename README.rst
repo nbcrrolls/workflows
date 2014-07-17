@@ -18,7 +18,7 @@ Workflow documentation requirements
    + Optional: any extra files (documentation, examples, etc.) that will
      be distributed with the workflow. Must be listed in README. 
 
-#. **"Description" file format**
+#. **File "description-template" format**
 
    This file consists of a description of a worflow as  key-value pairs.  Keywords are ordered one per line followed by 
    keyword values.  Values can have multiple lines. The following keywords are required:
@@ -84,3 +84,19 @@ Workflows are distributed as tar.gz files which must contain :
 + any optional files (extra documentation or examples) 
 
 Naming convention: WorkflowName_1.2.tar.gz 
+
+File "workflow-list" 
+------------------------
+
+This file keeps track of the names for workflows, actors, types and tags.
+Please ocnsult this file when creating new workflows and update accordingly
+when creating new workflows.
+
+Adding a new workflow
+------------------------
+
++ create a directory either in workflows/ or actors/ 
++ in the *workflow-list*
+
+   - add workflow name 
+   - add new tags or types (if any) 
