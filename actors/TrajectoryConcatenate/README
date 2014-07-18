@@ -1,0 +1,3 @@
+TrajectoriesConcatenate Workflow - 1.0
+
+This workflow utilize VMD to concatenate trajectories. VMD only allows dcd, pdb, crd as trajectory outputs; therefore, our workflow can only support outputs in these formats. 
