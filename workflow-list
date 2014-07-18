@@ -5,11 +5,18 @@ Workflows
     LigandParameterizationParallel
 
 Actors
+    TrajectoryListing
+    PDBCreator
+    PDBModifier
+    AtomSelection
+    Clustering
     CreateDirectoryCopy 
     MatlabStatistic
     PDBtoPDBQTReceptor
     TrajectoryConcatenate
-
+    FolderCreator
+    Vina
+    
 Tags
     AmberTools 
     OpalServer 
