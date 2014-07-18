@@ -37,5 +37,5 @@ Usage
     There are two ways to run this workflow. One is through the graphic interface. After the workflow is 
 	opened, users can double click the parameters to change their values and press the play button to start. 
 	Another way is to run Kepler through command lines. It is highly recommended that users check the source 
-	codes under String Constant before running the workflow to ensure that the commands to execute tleap are suitable for 
-	unique systems.
+	codes under String Constant before running the workflow to ensure that the commands to execute tleap are 
+	suitable for unique systems.
