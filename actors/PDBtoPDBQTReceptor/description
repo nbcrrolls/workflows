@@ -1,0 +1,29 @@
+Name
+   PDBtoPDBQTReceptor
+Version
+   1.0
+Class
+   actor
+Kar
+   PDBtoPDBQTReceptor_1.0.kar
+Image
+   PDBtoPDBQTReceptor_1.0.png
+Tag
+   OpalServer
+Type
+   Utilities
+Director
+   PN
+Actor
+   none
+Purpose
+   This workflow uses the NBCR opal server to run the pdb-to-pdbqt function implemented in Autodock. Users does not need to have Autodock installed in their local machines. Receptor pdb files are converted into receptor pdbqt files using the workflow. Outputs are displayed in user default web browser and are downloaded into the directory listed under Path.
+Required Software
+    Kepler 2.4 or above
+Parameters
+    i     This is the input pdb file of interest. Users must supply the path to the pdb file and the receptor pdb file.
+    o     This is the name for the output pdbqt file. Only the name is necessary.
+    Path  This is the directory where all outputs will be downloaded and stored.
+Overview
+Usage
+    There are two ways to run this workflow. One is through the graphic interface. After the workflow is opened, users can double click the parameters to change their values and press the play button to start. Another way is to run Kepler through command lines.

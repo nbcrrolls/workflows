@@ -1,0 +1,3 @@
+PDBtoPDBQTReceptor Workflow - 1.0
+
+The input of this workflow should be a single pdb file. This workflow only support receptor/protein pdb file, no ligand pdb file is accepted. 
