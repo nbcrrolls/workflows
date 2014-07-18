@@ -1,3 +1,8 @@
 PDBtoPDBQTReceptor Workflow - 1.0
 
+Parameters
+    i     This is the input pdb file of interest. Users must supply the path to the pdb file and the receptor pdb file.
+    o     This is the name for the output pdbqt file. Only the name is necessary.
+    Path  This is the directory where all outputs will be downloaded and stored.
+
 The input of this workflow should be a single pdb file. This workflow only support receptor/protein pdb file, no ligand pdb file is accepted. 

@@ -1,3 +1,14 @@
 CreateDirectoryCopy
 
+Parameters: 
+    d  directory where the pdb files are located and where the new directories will be created.
+
+    p  pattern that the workflow will use to identify all the pdb files. 
+       Default is .*pdb$$. It can also be changed to .*mae$$ or .*sdf$$ 
+       if .mae extension or .sdf extension are provided instead of .pdb extension.
+
+    p2 pattern that will be replaced by an empty string. As a result, only the names of the 
+       gpdb files are retained for creating directories. Default is .pdb. It can be 
+       changed to .*mae$$ or .*sdf$$ if .mae extension or .sdf extension are provided instead of .pdb extension.
+
 This workflow is for organizing purpose. It can be applied to every other file types as long as the file name perserve the "FILE_NAME.ext" format. All files in the same directory that match the pattern user defined in parameter will be read by the program. 

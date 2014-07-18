@@ -23,10 +23,6 @@ Required Software
     Kepler 2.4 or above
     Gaussian09
     AmberTools 12 or above
-Parameters
-    c  overall charge of the small ligand. Default is 0 which means the small molecule is neutral.
-    l  Ligand name.
-    d  Directory where the small molecule pdb is located and where all the sequential jobs will be executed.
 Overview
     none
 Usage

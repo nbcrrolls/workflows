@@ -21,13 +21,7 @@ Purpose
 Required Software
    Kepler 2.4 or above
    MATLAB R2013b or above
-   MATLAB Parallelizing license (OPTIONAL)
-Parameters
-   Parameter name (Parameter shorthand for workflow if running on terminals)
-   directory (d)   	    This is the directory where the input CSV file should be located and output files will be saved. The two CSV files should be in this user specific directory.  
-   Number of Receptor (n)   User specifies the number of ensemble receptor structures. For example, if user wants the best two ensemble receptor structures out of the eight structures they used for virtual screening, they will specify 2 for this parameter. 
-   high (high) 		    this is the name for the CSV file that contains 999999 to represent non-binding events.
-   zero (zero) 		    this is the name for the CSV file that contains 0 to represent non-binding events. 
+   MATLAB Parallelizing license (OPTIONAL) 
 Overview
    none
 Usage
