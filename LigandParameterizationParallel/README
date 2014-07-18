@@ -1,4 +1,7 @@
-LigandParameterizationParallel Workflow - 1.0
+LigandParameterizationParallel 
+
+Version
+   1.0
 
 Purpose
    This workflow parameterize small molecules in parallel. It takes a list of pdb files stored in a local directory 
