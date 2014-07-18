@@ -1,0 +1,42 @@
+Name
+   VirtualScreening
+Version
+   1.0
+Class
+   workflow
+Kar
+   VirtualScreening_1.0.kar
+Image
+   VirtualScreening_1.0.png
+Tag
+   Vina
+Types
+   Docking
+Director
+   PN
+   SDF
+   DE
+Actor
+   Vina
+Purpose
+   This workflow takes a list of receptor and ligand PDBs from a receptor directory and a  ligand directory, respectively and convert them to Vina input files (PDBQT). Each receptor is paired with a ligand to create an N(numbers of ligand) by M(numbers of receptors) matrix. Each pair of inputs will then pass to Vina for docking. Users can choose either to run Vina locally or on the NBCR web server in the Vina actor.
+Required Software
+   Kepler 2.4 or above
+   Kepler Trunk verison (OPTIONAL)
+   biokepler 1.0 or above
+   MGLTools 1.5.6
+Parameter
+Parameter name (Parameter shorthand if running workflow using command prompt)    
+   Receptor Directory (rd)  This parameter requires the complete path to the directory which contains all the receptors of interest. Receptor directory should be separate from ligand directory. 
+   Ligand Directory (ld)    This parameter requires the complete path to the directory which contains all the ligands of interest. Ligand directory should be separate from receptor directory.
+   Output Directory (od)    This parameter requires the complete path to the directory where all the outputs from docking will be found and stored in.	Mgltools Directory (mgld) – This should be where the mgltools are installed. This should not be the complete path to where pythonsh file is located or where the prepare_receptor4.py or prepare_ligand4.py is. This should be the path before bin and MGLToolsPckgs are seperated. For example if the path to pythonsh is “/home/users/mgltools/bin/pythonsh”, the value for this parameter should be “/home/users/mgltoos/”
+   center_x (center_x)      This defines the center (x-axis) of the grid box.
+   center_y (center_y)      This defines the center (y-axis) of the grid box.
+   center_z (center_z)      This defines the center (z-axis) of the grid box.
+   size_x (size_x)          This parameter specifies the length of the grid box extended from the x-axis center
+   size_y (size_y)          This parameter specifies the length of the grid box extended from the y-axis center
+   size_z (size_z)          This parameter specifies the length of the grid box extended from the z-axis center.
+Overview
+   none
+Usage
+   There are two ways to run this workflow. One is through the graphic interface. After the workflow is opened, users can double click the parameters to change their values and press the play button to start. Another way is to run Kepler through command lines. 

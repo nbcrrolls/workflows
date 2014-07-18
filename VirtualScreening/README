@@ -1,0 +1,5 @@
+Virtual Screening - 1.0
+
+OVERVIEW: This workflow screens a list of small molecules against a list of protein receptors. Both inputs should be in pdb format. 
+
+CAUTION: This workflow is built with an opal actor that is not released in Kepler 2.4. It will be released in the later Kepler version. For users who want to use it and have Kepler 2.4 and biokepler 1.0 installed in their computers, they can follow the following instruction (http://www.biokepler.org/biokepler-svn) to switch to Trunk and use the newest version of the opal actor. For users who are not planning to use the NBCR opal server, Kepler 2.4 is sufficient to run the workflow. 
