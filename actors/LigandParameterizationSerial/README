@@ -1,12 +1,19 @@
-LigandParameterizationSerial Workflow - 1.0
+LigandParameterizationSerial 
+
+Version
+    1.0
 
 Parameters
     c  overall charge of the small ligand. Default is 0 which means the small molecule is neutral.
     l  Ligand name.
     d  Directory where the small molecule pdb is located and where all the sequential jobs will be executed.
 
-GENERAL: This workflow parameterizes one ligand in a serial fashion. Output are ligand parameters written in Amber formats. 
+General
+    This workflow parameterizes one ligand in a serial fashion. Output are ligand parameters written in 
+    Amber formats. 
 
-CAUTION: It is highly recommended that users check the source codes under String Constant before running the workflow to ensure that the commands to execute tleap are suitable for user’s systems.
-
-The input of this workflow should be a single pdb file for which the file name is a variable under the parameter l (ligand name). 
+Caution
+    It is highly recommended that users check the source codes under String Constant before running the 
+    workflow to ensure that the commands to execute tleap are suitable for user’s systems.
+    The input of this workflow should be a single pdb file for which the file name is a variable under 
+    the parameter l (ligand name). 
