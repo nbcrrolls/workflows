@@ -11,8 +11,7 @@ Type
 Director
    PN
 Actor
-   FolderCreator
-   Parameterization
+   none
 Purpose
    This workflow parameterize small molecules in parallel. It takes a list of pdb files stored in a local directory 
    and creates corresponding sub-directories using the pdb file names. Parameterization of each small molecule will 
@@ -22,6 +21,14 @@ Required Software:
     Kepler 2.4 or above
     Gaussian09
     AmberTools 12 or above 
+Parameters
+    c   charge of the small molecules. All the small molecules have to have the same charges. Default is 0 which 
+        means all the small molecules are neutral.
+    d   directory of the small molecule pdb files.
+    p   pattern of the pdb files. Default is .*pdb$$ which means all the pdb files in the directory.
+    p2  pattern of the pdb file to be replaced by empty string in order to obtain only the ligand name. Default 
+        is .pdb which means that LIGAND_NAME.pdb will turn into LIGAND_NAME
+    n   the number of pdb that is going to parameterize in a single run. For example, if user has five small molecules in a single directory that need to parameterize, n will be set to five.
 Overview
     none
 Usage

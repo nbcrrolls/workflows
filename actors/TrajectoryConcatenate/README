@@ -1,5 +1,8 @@
 TrajectoriesConcatenate Workflow - 1.0
 
+Purpose
+   This workflow takes series of trajectories and concatenate them into one trajectory file named _TRAJ_CONCAT_VMD_(TIME_THE_FILE_IS_CREATED)
+
 Parameter:
    pa   stands for pattern. Default value is .*dcd$$ which will list all the .dcd files in the assigned directory.
    d    stands for directory. This should be a complete path that leads to the directory where all .dcd files are located. 

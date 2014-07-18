@@ -1,5 +1,9 @@
 CreateDirectoryCopy
 
+Purpose 
+    This workflow reads a list of pdb files, creates new directories using the pdb 
+    file names and copies the pdb files to corresponding new directories.
+
 Parameters: 
     d  directory where the pdb files are located and where the new directories will be created.
 
