@@ -1,0 +1,5 @@
+MatlabStatistic - 1.0
+
+NOTES: The CSV files can be created with the help of SCHRODINGER GLIDE docking program. The first column should be the ligand ID and second column will should be 1 or 0 for each ligand. 1 represent binders and 0 are for non-binders. The output log file will inform user which set of ensembles can best distinguish binders from non-binders. 
+
+CAUTION: This workflow is very memory intensive. It may take up all the RAM memory a user has on their computer. MATLAB Parallelizing license is optional. If a user does not have the MATLAB Parallelizing license, the workflow is defaulted to run in serial. However, there will be a huge speed up if matlab can split the calculation and run them simultaneously.
