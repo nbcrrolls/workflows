@@ -1,0 +1,3 @@
+CreateDirectoryCopy
+
+This workflow is for organizing purpose. It can be applied to every other file types as long as the file name perserve the "FILE_NAME.ext" format. All files in the same directory that match the pattern user defined in parameter will be read by the program. 
