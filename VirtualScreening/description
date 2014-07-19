@@ -10,7 +10,7 @@ Image
    VirtualScreening_1.0.png
 Tag
    Vina
-Types
+Type
    Docking
 Director
    PN
@@ -26,7 +26,7 @@ Required Software
    Kepler Trunk verison (OPTIONAL)
    biokepler 1.0 or above
    MGLTools 1.5.6
-Parameter
+Parameters
    rd    This parameter requires the complete path to the directory which contains all the receptors of interest. 
          Receptor directory should be separate from ligand directory. 
    ld    This parameter requires the complete path to the directory which contains all the ligands of interest. 
