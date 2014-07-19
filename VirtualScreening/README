@@ -24,8 +24,8 @@ Parameter name (Parameter shorthand if running workflow using command prompt)
                             the complete path to where pythonsh file is located or where the 
                             prepare_receptor4.py or prepare_ligand4.py is. This should be the path before 
                             bin and MGLToolsPckgs are seperated. For example if the path to pythonsh is 
-                            “/home/users/mgltools/bin/pythonsh”, the value for this parameter should 
-                            be “/home/users/mgltoos/”
+                            "/home/users/mgltools/bin/pythonsh", the value for this parameter should
+                            be "/home/users/mgltoos/"
    center_x (center_x)      This defines the center (x-axis) of the grid box.
    center_y (center_y)      This defines the center (y-axis) of the grid box.
    center_z (center_z)      This defines the center (z-axis) of the grid box.
