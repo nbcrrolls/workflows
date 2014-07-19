@@ -19,9 +19,9 @@ Actor
 Purpose 
     This workflow reads a list of pdb files, creates new directories using the pdb 
     file names and copies the pdb files to corresponding new directories. 
-Required Software: 
+Required Software
     Kepler2.4 or above
-Parameters: 
+Parameters
     d  directory where the pdb files are located and where the new directories will be created.
     
     p  pattern that the workflow will use to identify all the pdb files. 

@@ -23,7 +23,7 @@ Purpose
 Required Software
    Kepler 2.4 or above
    AmberTools 12 or 13 (AmberTools 14 is currently under development) 
-Parameters:
+Parameters
    dd  Trajectories directory. This should be the complete path to the trajectories directory. 
 
    dp  Trajectories pattern. Some acceptable variables are .*pdb$$ (all pdb files in the trajectories directory), 

@@ -22,7 +22,7 @@ Purpose
 Required Software
    Kepler 2.4 or above
    VMD 1.9.1 or above
-Parameter:
+Parameter
    pa   stands for pattern. Default value is .*dcd$$ which will list all the .dcd files in the 
         assigned directory.
    d    stands for directory. This should be a complete path that leads to the directory where all 

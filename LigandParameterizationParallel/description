@@ -4,7 +4,11 @@ Version
    1.0
 Class
    workflow
-Tags
+Kar
+   LigandParameterizationParallel_1.0.kar
+Image
+   LigandParameterizationParallel_1.0.png
+Tag
    Parameterization
 Type
    Electrostatic 
@@ -17,7 +21,7 @@ Purpose
    and creates corresponding sub-directories using the pdb file names. Parameterization of each small molecule will 
    be done on corresponding sub-directories using Antechamber, tleap by Amber and Gaussian09. The final output is a 
    new pdb file named LIGAND_NAME-new.pdb which can be used for any further experiments and for validations.
-Required Software:
+Required Software
     Kepler 2.4 or above
     Gaussian09
     AmberTools 12 or above 
