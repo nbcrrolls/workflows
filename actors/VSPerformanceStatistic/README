@@ -1,4 +1,4 @@
-MatlabStatistic
+VSPerformanceStatistic
 
 Version
    1.0
@@ -29,7 +29,7 @@ Parameters
    high (high) 		    this is the name for the CSV file that contains 999999 to represent non-binding events.
    zero (zero) 		    this is the name for the CSV file that contains 0 to represent non-binding events.
 
-Notes
+Input & Output
    The CSV files can be created with the help of SCHRODINGER GLIDE docking program. The first column should 
    be the ligand ID and second column will should be 1 or 0 for each ligand. 1 represent binders and 0 are 
    for non-binders. The output log file will inform user which set of ensembles can best distinguish binders 
