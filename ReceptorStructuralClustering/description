@@ -1,13 +1,13 @@
 Name
-   GromosClustering
+   ReceptorStructuralClustering
 Version
    1.0
 Class
    workflow
 Kar
-   GromosClustering_1.0.Kar
+   ReceptorStructuralClustering_1.0.Kar
 Image
-   GromosClustering_1.0.png
+   ReceptorStructuralClustering_1.0.png
 Tag
    OpalServer
    Amber
