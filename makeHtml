@@ -1,0 +1,363 @@
+#!/usr/bin/env python
+
+import os
+import os.path
+import sys
+import glob
+
+class Description:
+	def __init__(self, ldict, lines):
+
+		self.Name     = self.setWord(ldict["Name"], lines)
+		self.Version  = self.setWord(ldict["Version"], lines)
+		self.Class    = self.setWord(ldict["Class"], lines)
+		self.Kar      = self.setWord(ldict["Kar"], lines)
+		self.Image    = self.setWord(ldict["Image"], lines)
+		self.Type     = self.setWord(ldict["Type"], lines)
+		self.Director = self.setWord(ldict["Director"], lines)
+		self.Tag      = self.setString(ldict["Tag"], lines)
+		self.Actor    = self.setString(ldict["Actor"], lines)
+		self.Purpose  = self.setParagraph(ldict["Purpose"], lines)
+		self.Sw       = self.setItem(ldict["Required Software"], lines)
+		self.Overview = self.setParagraph(ldict["Overview"], lines)
+		self.Usage    = self.setParagraph(ldict["Usage"], lines)
+		self.Params   = self.setParagraph(ldict["Parameters"], lines)
+
+		print "NAME=", self.Name, 
+		for i in self.Params: print "param=%s=" % i
+
+	def setWord(self, vals, lines):
+		str = lines[vals[0]]
+		return  str.strip(" \t\n\r")
+
+	def setString(self, vals, lines):
+		words = ""
+		for i in vals:
+			str = lines[i]
+			str = str.strip(" \t\n\r")
+			if str.lower() == "none": continue
+			words = words + " " + str 
+		return  words
+
+	def setParagraph(self, vals, lines):
+		paras = []
+		para = ""
+		for i in vals:
+			str = lines[i]
+			str = str.lstrip(" ")
+			if len(str) <=1:
+				paras.append(para)
+				para = ""
+			para += str 
+
+		paras.append(para)
+		return paras
+
+	def setItem(self, vals, lines):
+		item = []
+		for i in vals:
+			str = lines[i]
+			str = str.strip(" \t\n\r")
+			item.append(str) 
+
+		return  item
+
+
+class TextParser:
+
+	def __init__(self, argv):
+		self.usageName = os.path.basename(argv[0])
+		self.setDefaults()
+		self.checkArgs(argv)
+
+	def help (self):
+		""" print usage """
+		print 'Usage: %s [DIR]\n\n' % self.usageName,  \
+			  'DIR - optional base directory for workflows and actors \n',  \
+			  '	  If none provided assume current directory.\n', 
+		sys.exit(0)
+
+	def checkArgs(self, argv):
+		self.basedir = '.'
+		nargs = len(argv)
+		if nargs > 2:
+			self.help()
+		if nargs == 2:
+			arg = argv[1]
+			if arg in ['-h', '--help', 'help']:
+				self.help()
+			else:
+				self.basedir = argv[1]
+
+		if not os.path.isdir(self.basedir):
+			sys.exit('ERROR: %s is not a directory' % self.basedir)
+		if not  self.basedir.endswith("/") :
+			self.basedir = self.basedir + "/"
+
+	def naturalSort(self, l):
+		""" From http://blog.codinghorror.com/sorting-for-humans-natural-sort-order/"""
+		import re
+		""" Sort the given list in the way that humans expect. """
+		convert = lambda text: int(text) if text.isdigit() else text
+		alphanum_key = lambda key: [ convert(c) for c in re.split('([0-9]+)', key) ]
+		l.sort( key=alphanum_key )
+
+	def setDefaults(self):
+		self.wflist = [] # list of items describing workflows
+		self.alist = []  # list of items describing actors
+		self.pattern = 'description' # description file to read
+		self.template = 'description-template' # description template file 
+		self.keys = []
+
+		self.wordTitle = 'PROJECT TITLE'
+		self.wordPubs = 'RELEVANT PUBLICATIONS'
+		self.pubPrefix = "   .. role:: pubauthor\n\n   .. role:: pubtitle\n\n   .. role:: pubprint\n\n"
+		self.ext = ".rst"
+		self.divFile = "div-" + self.pattern 
+		self.divContent = ""
+		self.baseHtmlDir = "projects"
+
+	def getFileList(self):
+		files = glob.glob('%s/*/%s' % (self.basedir, self.pattern) )
+		self.naturalSort(files)
+		self.wflist = files
+
+		files = glob.glob('%sactors/*/%s' % (self.basedir, self.pattern) )
+		self.naturalSort(files)
+		self.alist = files
+
+	def readTemplate(self):
+		templ = '%s%s' % (self.basedir, self.template) 
+		if not os.path.isfile (templ):
+			sys.exit('ERROR: %s file does not exist' % templ)
+
+		f = open(templ)
+		lines = f.readlines()
+		f.close()
+
+		for line in lines :
+			if line[0] == " ": continue
+			word = line.strip(" \t\n\r")
+			if len(word): 
+				self.keys.append(word)
+
+
+	def getDescriptions(self):
+		for fname in self.wflist:
+			ldict = self.readDescriptionFile(fname)
+		for fname in self.alist:
+			ldict = self.readDescriptionFile(fname)
+
+	def readDescriptionFile(self, fname):
+		f = open(fname)
+		lines = f.readlines()
+		f.close()
+
+		ldict = {}
+		lnum = 0
+		for line in lines :
+			str = line[:-1]
+			str = line.strip(" \t\n\r")
+			if str in self.keys:
+				key = str
+				ldict[str] = []
+			else:
+				ldict[key].append(lnum)
+			lnum += 1
+
+		if self.verifyDescriptionKeys(ldict, fname):
+			ldict = {}
+
+		desc = Description(ldict, lines)
+
+		return desc
+
+	def verifyDescriptionKeys(self, ldict, fname):
+		desc_keys = ldict.keys()
+		templ_keys = self.keys
+		ListDiff = lambda l1,l2: [x for x in l1 if x not in l2]
+		missKeys = ListDiff(templ_keys, desc_keys)
+
+		if len(missKeys):
+			print "ERROR in %s file keys: missing %s " % (fname, missKeys)
+			return 1 # error in description file
+		return 0
+
+	def createDescription(self, ldict, lines):
+		text = '' 
+		for key in self.keys:
+			 vals = ldict.get(key, None)
+			 if vals is not None:
+				if key != self.wordID:	  # add line heading
+					text += "|%s|\n" % key 
+				if key == self.wordID:	  # add project id line and heading
+					text += self.composeHeader(vals, lines)
+				elif key == self.wordTitle: # add project title line
+					text += self.composeTitleString(vals, lines)
+				elif key == self.wordPubs:  # add  publications lines
+					text += self.composePubString(vals, lines)
+				else:					   # add all other lines 
+					str = ''
+					for i in vals:
+					   str += "%s " % lines[i][:-1]
+					text += "   %s\n" % str
+		return text 
+
+	def makeContent(self, file):
+		f = open(file)
+		lines = f.readlines()
+		f.close()
+
+		ldict = {}
+		lnum = 0
+		for line in lines :
+			str = line[:-1]
+			if str in self.keys:
+				key = str
+				ldict[str] = []
+			else:
+				ldict[key].append(lnum)
+			lnum += 1
+
+		# add div content
+		self.composeDiv(lines, ldict)
+
+		# create and return rst content
+		text = '' 
+		for key in self.keys:
+			 vals = ldict.get(key, None)
+			 if vals is not None:
+				if key != self.wordID:	  # add line heading
+					text += "|%s|\n" % key 
+				if key == self.wordID:	  # add project id line and heading
+					text += self.composeHeader(vals, lines)
+				elif key == self.wordTitle: # add project title line
+					text += self.composeTitleString(vals, lines)
+				elif key == self.wordPubs:  # add  publications lines
+					text += self.composePubString(vals, lines)
+				else:					   # add all other lines 
+					str = ''
+					for i in vals:
+					   str += "%s " % lines[i][:-1]
+					text += "   %s\n" % str
+		return text 
+
+	def composeDiv(self, lines, ldict):
+		tags = "item %s " % self.pattern.upper()
+		# check for status
+		vals = ldict.get("STATUS", None)
+		if vals:
+			linenum = vals[0]
+			str = lines[linenum]
+			status = ["New", "Continuing", "Completed"]
+			for s in status: 
+				if s in str: 
+					tags += "%s " % s
+			# check for start date
+			ind = str.find("/")
+			if ind > -1 :
+				tags += "20%2s " % str[ind+1:ind+3]
+
+		# check for core 
+		vals = ldict.get("TR&D PROJECT", None)
+		if vals:
+			linenum = vals[0]
+			str = lines[linenum]
+			cores = ["1", "2", "3", "4"]
+			for c in cores:
+				if c in str:
+					tags += "Core%s " % c
+
+		# check for id 
+		id = None
+		vals = ldict.get(self.wordID, None)
+		if vals:
+			linenum = vals[0]
+			id = lines[linenum][:-1]
+
+		# check for title 
+		title = None
+		vals = ldict.get(self.wordTitle, None)
+		if vals:
+			title = ''
+			for i in vals:
+				title += lines[i]
+
+		# create div section
+		if not id: return
+		if not title: return
+		div  = '<div id=\"_%s%s\" class=\"%s\">\n' % (self.pattern, id, tags)
+		div += '<a href=\"%s/%s%s.html\">\n' % (self.baseHtmlDir, self.pattern, id)
+		div += '<span class=\"%snumber\">%s %s</span>\n' % (self.pattern, self.pattern.upper(), id)
+		div += '<span class=\"%stitle\">\n' %(self.pattern)
+		div += '%s' % title
+		div += '</span></a></div>\n\n'
+
+		self.divContent += div
+
+
+	def composeHeader(self, vals, lines):
+		if len(vals) > 1:
+			print "Error: project id is too long"
+
+		str = ''
+		for i in vals:
+			str += lines[i]
+		id = int(str)
+
+		header  = '.. highlight:: rest\n'
+		header += '.. include:: defn-rst\n\n'
+		header += '.. role:: project\n\n'
+		header += ':project:`%s %s`\n' % (self.pattern.upper(), id)
+		header += '---------------------------\n'
+		header += '.. index:: %s %s\n\n' % (self.pattern.upper(), id)
+
+		return header
+
+	def composeTitleString(self, vals, lines):
+			str = ''
+			for i in vals:
+				str += lines[i]
+
+			line = "   :index:`%s`\n" % str[:-1]
+			return line
+
+	def composePubString(self, vals, lines):
+			str = ''
+			if len(vals): # publications listed
+				str += self.pubPrefix
+			else:  # no publications 
+				str += "   NA\n" 
+			for i in vals:
+				str += "#.   | %s\n" % lines[i]
+			return str
+
+	def writeRST(self, fname, content):
+		outfile = fname + self.ext
+		f = open(outfile, "w")
+		f.write(content)
+		f.close()
+
+	def writeDiv(self):
+		f = open(self.divFile, "w")
+		f.write(self.divContent)
+		f.close()
+
+	def run(self):
+		self.getFileList()
+		self.readTemplate()
+		self.getDescriptions()
+		sys.exit()
+		for file in self.files:
+			if os.path.isfile (file):
+				content = self.makeContent(file)
+				self.writeRST(file, content)
+			else:
+				print "Error: %s is not a file, skipping " % file
+
+		self.writeDiv()
+
+if __name__ == "__main__":
+		app = TextParser(sys.argv)
+		app.run()
+
