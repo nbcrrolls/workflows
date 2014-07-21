@@ -1,4 +1,4 @@
-Virtual Screening
+VirtualScreening
 
 Version
    1.0
@@ -39,6 +39,15 @@ Parameter name (Parameter shorthand if running workflow using command prompt)
 Overview
    This workflow screens a list of small molecules against a list of protein receptors. Both inputs 
    should be in pdb format. 
+
+Input & Output
+
+   The inputs are ligand pdb files and receptor pdb files. Outputs are RECEPTOR_NAME_LIGAND_NAME.pdbqt
+   files and RECEPTOR_NAME_LIGAND_NAME.log files.
+
+Operating System Requirment
+
+   Linux
 
 Caution
    This workflow is built with an opal actor that is not released in Kepler 2.4. It will be released 

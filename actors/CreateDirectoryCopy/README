@@ -19,6 +19,16 @@ Parameters:
        changed to .*mae$$ or .*sdf$$ if .mae extension or .sdf extension are provided instead of 
        .pdb extension.
 
+Input & Output
+
+    The input for this workflow is a directory with mulitple pdb files. Output will be new directories
+    containing the corresponding pdb file.
+
+Operation System Requirement
+
+    Linux or
+    Mac
+
 Overview
     This workflow is for organizing purpose. It can be applied to every other file types as long as 
     the file name perserve the "FILE_NAME.ext" format. All files in the same directory that match the 

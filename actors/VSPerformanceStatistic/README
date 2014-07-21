@@ -35,6 +35,10 @@ Input & Output
    for non-binders. The output log file will inform user which set of ensembles can best distinguish binders 
    from non-binders. 
 
+Operating System Requirement
+
+   Linux
+
 Caution
    This workflow is very memory intensive. It may take up all the RAM memory a user has on their computer. 
    MATLAB Parallelizing license is optional. If a user does not have the MATLAB Parallelizing license, the 

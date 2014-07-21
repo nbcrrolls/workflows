@@ -15,6 +15,14 @@ Parameters
     o     This is the name for the output pdbqt file. Only the name is necessary.
     Path  This is the directory where all outputs will be downloaded and stored.
 
+Input & Output
+   
+    Input is a receptor pdb file and output is a receptor pdbqt file.
+
+Operation System Requirement
+    
+    Linux
+
 Notes
     The input of this workflow should be a single pdb file. This workflow only support 
     receptor/protein pdb file, no ligand pdb file is accepted. 
