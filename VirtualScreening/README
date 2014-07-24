@@ -42,8 +42,8 @@ Overview
 
 Input & Output
 
-   The inputs are ligand pdb files and receptor pdb files. Outputs are RECEPTOR_NAME_LIGAND_NAME.pdbqt
-   files and RECEPTOR_NAME_LIGAND_NAME.log files.
+   The inputs are ligand pdb files and receptor pdb files. Outputs are RECEPTOR_NAME_LIGAND_NAME_out
+   .pdbqt files and RECEPTOR_NAME_LIGAND_NAME_out.log files.
 
 Operating System Requirment
 
