@@ -41,12 +41,12 @@ Overview
    should be in pdb format. 
 
 Input & Output
-
    The inputs are ligand pdb files and receptor pdb files. Outputs are RECEPTOR_NAME_LIGAND_NAME_out
-   .pdbqt files and RECEPTOR_NAME_LIGAND_NAME_out.log files.
+   .pdbqt files and RECEPTOR_NAME_LIGAND_NAME_out.log files. Sample inputs and outputs are 
+   available and included as a part of the download. Inputs files are archived and named input.tar
+   and output files are put inside the file output.tar
 
 Operating System Requirment
-
    Linux
 
 Caution

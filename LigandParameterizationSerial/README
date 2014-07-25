@@ -12,14 +12,14 @@ General
     This workflow parameterizes one ligand in a serial fashion. Output are ligand parameters written in 
     Amber formats. 
 
-Input & Output
-   
+Input & Output   
     The input for the workflow is a single ligand pdb file and output are LIGAND_NAME.prepc (Amber 
     parameters), LIGAND_NAME.frcmod (Amber check file) and LIGAND_NAME-new.pdb file 
-    (built from Amber parameters).
+    (built from Amber parameters).Sample input and outputs are available and included as a part
+    of the download. Inputs file is a ligand pdb file, named DM0.pdb and output files are archived,
+    named output.tar
 
 Operation System Requirement
-   
     Linux
 
 Caution
