@@ -1,0 +1,5 @@
+parm /home/pieong/Desktop//_CLUSTER_TRAJ_FIRST_FRAME.pdb [top1]
+trajin /home/pieong/Desktop//_CLUSTER_TRAJ_FIRST_FRAME.pdb [traj1]
+strip !@CA
+trajout /home/pieong/Desktop//_CLUSTER_SELECTION.pdb pdb parm [top1]
+go

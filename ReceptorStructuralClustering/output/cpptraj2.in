@@ -1,0 +1,6 @@
+parm /home/pieong/Desktop/p53_wt.top [top1]
+trajin /home/pieong/Desktop/_CLUSTER_CAT_ALL.mdcrd 1 9999 1 parm [top1] [traj1]
+strip !:1-194
+trajout /home/pieong/Desktop//_CLUSTER_TRAJ_FIRST_FRAME.pdb pdb onlyframes 1-1 parm [top1]
+trajout /home/pieong/Desktop//_CLUSTER_TRAJ_SELECTED_FRAMES.pdb pdb model parm [top1]
+go

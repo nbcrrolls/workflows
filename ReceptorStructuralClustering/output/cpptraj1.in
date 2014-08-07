@@ -1,0 +1,4 @@
+parm /home/pieong/Desktop/p53_wt.top [top1]
+trajin /home/pieong/Desktop/p53_wt_1.dcd parm [top1]
+trajin /home/pieong/Desktop/p53_wt_2.dcd parm [top1]
+trajout /home/pieong/Desktop/_CLUSTER_CAT_ALL.mdcrd parm [top1]

@@ -1,0 +1,80 @@
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2013 The MathWorks, Inc.
+                    R2013b (8.2.0.701) 64-bit (glnxa64)
+                              August 13, 2013
+
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+Starting matlabpool using the 'local' profile ... connected to 8 workers.
+Results with 1 protein conformations in each set
+Best AUC results for each method, with 95% confidence, and p-values
+   
+Maximal Score is 0.57954 based on Gibbs
+Maximal Score is 0.57954 based on best
+Maximal Score is 0.57954 based on Unweighted Avgerage
+   
+Confidence on the maximal score is 0.043354 with p-value 0.00016157 based on Gibbs
+Confidence on the maximal score is 0.043354 with p-value 0.00016157 based on Best
+Confidence on the maximal score is 0.043354 with p-value 0.00016157 based on Unweighted Avgerage
+   
+Protein Conformations 14 is/are optimal based on Gibbs 
+Protein Conformations 14 is/are optimal based on Best 
+Protein Conformations 14 is/are optimal based on Unweighted Avgerage 
+   
+Time to calculate this set 0.61s
+   
+############################
+   
+Results with 2 protein conformations in each set
+Best AUC results for each method, with 95% confidence, and p-values
+   
+Maximal Score is 0.58655 based on Gibbs
+Maximal Score is 0.5898 based on best
+Maximal Score is 0.58542 based on Unweighted Avgerage
+   
+Confidence on the maximal score is 0.041559 with p-value 2.235e-05 based on Gibbs
+Confidence on the maximal score is 0.041395 with p-value 1.0605e-05 based on Best
+Confidence on the maximal score is 0.043745 with p-value 6.4795e-05 based on Unweighted Avgerage
+   
+Protein Conformations 3  14 is/are optimal based on Gibbs 
+Protein Conformations 3  14 is/are optimal based on Best 
+Protein Conformations 2  22 is/are optimal based on Unweighted Avgerage 
+   
+Time to calculate this set 5.62s
+   
+############################
+   
+Results with 3 protein conformations in each set
+Best AUC results for each method, with 95% confidence, and p-values
+   
+Maximal Score is 0.58825 based on Gibbs
+Maximal Score is 0.59178 based on best
+Maximal Score is 0.58537 based on Unweighted Avgerage
+   
+Confidence on the maximal score is 0.041342 with p-value 1.4347e-05 based on Gibbs
+Confidence on the maximal score is 0.041598 with p-value 7.653e-06 based on Best
+Confidence on the maximal score is 0.04367 with p-value 6.3687e-05 based on Unweighted Avgerage
+   
+Protein Conformations 2   3  14 is/are optimal based on Gibbs 
+Protein Conformations 3   4  14 is/are optimal based on Best 
+Protein Conformations 2  14  22 is/are optimal based on Unweighted Avgerage 
+   
+Time to calculate this set 41.97s
+   
+############################
+   
+############################
+   
+   
+############################
+
+ans =
+
+    0.5795
+    0.5865
+    0.5882
+
+Parallel pool using the 'local' profile is shutting down.

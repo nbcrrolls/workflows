@@ -1,0 +1,3 @@
+CMD
+Going to execute /opt/mgltools/bin/pythonsh /opt/mgltools/MGLToolsPckgs/AutoDockTools/Utilities24/prepare_receptor4.py  -r  p53_wt.pdb  -o  p53_wt.pdbqt 
+setting PYTHONHOME environment
