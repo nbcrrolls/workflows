@@ -31,8 +31,7 @@ Input & Output
    
    Inputs are MD simulations trajectory files and output is one trajectory file named 
    _TRAJ_CONCAT_VMD_(TIME_THE_FILE_IS_CREATED). Sample inputs and outputs are available as a part
-   of the download. Input files are compiled in input.tar and outputs are archived inside output.
-   tar
+   of the download. They are in the input and output folders, respectively.
 
 Operating System Requirement
    

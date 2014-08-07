@@ -17,8 +17,8 @@ Parameters
 
 Input & Output   
     Input is a receptor pdb file and output is a receptor pdbqt file. Sample inputs and outputs are 
-    available and included as a part of the download. Inputs file is a pdb file named p53_wt.pdb 
-    and output files are put inside output.tar
+    available and included as a part of the download. They are in the input and output folders, 
+    respectively.
 
 Operation System Requirement
     Linux

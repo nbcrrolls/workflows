@@ -1,4 +1,4 @@
-CreateDirectoryCopy
+CeateDirectoryCopy
 
 Verison
     1.0
@@ -22,8 +22,7 @@ Parameters:
 Input & Output
     The input for this workflow is a directory with mulitple pdb files. Output will be new directories
     containing the corresponding pdb file. Sample inputs and outputs are available and included 
-    as a part of the download. Inputs files are archived and named input.tar and output files are 
-    put together inside output.tar
+    as a part of the download. They are in the input and output folders, respectively.
 
 Operation System Requirement
     Linux or
