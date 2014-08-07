@@ -1,0 +1,19 @@
+remark goes here
+MASS
+
+BOND
+
+ANGLE
+
+DIHE
+c3-n3-cx-cx   1    0.300         0.000           3.000      same as X -c3-n3-X 
+c3-n3-cx-h1   1    0.300         0.000           3.000      same as X -c3-n3-X 
+cx-cx-n3-hn   1    0.300         0.000           3.000      same as X -c3-n3-X 
+h1-cx-n3-hn   1    0.300         0.000           3.000      same as X -c3-n3-X 
+
+IMPROPER
+
+NONBON
+
+
+

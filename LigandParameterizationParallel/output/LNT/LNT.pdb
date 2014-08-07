@@ -1,0 +1,84 @@
+HEADER    NONAME 05-Jun-11
+TITLE     Produced by PDBeChem
+COMPND    LNT      
+AUTHOR    EBI-PDBe Generated
+REVDAT   1  05-Jun-11     0
+ATOM      1  N14 LNT     0      -1.660   1.559   0.901  1.00 20.00           N+0
+ATOM      2  CA  LNT     0      -1.646   0.192   0.364  1.00 20.00           C+0
+ATOM      3  C16 LNT     0      -0.374  -0.020  -0.460  1.00 20.00           C+0
+ATOM      4  C17 LNT     0      -2.872  -0.019  -0.527  1.00 20.00           C+0
+ATOM      5  C18 LNT     0      -4.141   0.069   0.322  1.00 20.00           C+0
+ATOM      6  C19 LNT     0      -5.369  -0.016  -0.586  1.00 20.00           C+0
+ATOM      7  C20 LNT     0      -4.166  -1.087   1.324  1.00 20.00           C+0
+ATOM      8  O21 LNT     0      -0.361  -1.350  -0.983  1.00 20.00           O+0
+ATOM      9  O22 LNT     0      -0.345   0.916  -1.539  1.00 20.00           O+0
+ATOM     10  N23 LNT     0       0.803   0.182   0.396  1.00 20.00           N+0
+ATOM     11  C24 LNT     0       2.045  -0.013  -0.363  1.00 20.00           C+0
+ATOM     12  C   LNT     0       2.655  -1.341   0.004  1.00 20.00           C+0
+ATOM     13  O   LNT     0       2.110  -2.052   0.815  1.00 20.00           O+0
+ATOM     14  C27 LNT     0       3.029   1.110  -0.029  1.00 20.00           C+0
+ATOM     15  OG1 LNT     0       3.300   1.104   1.374  1.00 20.00           O+0
+ATOM     16  C29 LNT     0       2.420   2.457  -0.424  1.00 20.00           C+0
+ATOM     17  H   LNT     0      -0.896   1.703   1.543  1.00 20.00           H+0
+ATOM     18  H2  LNT     0      -1.640   2.240   0.156  1.00 20.00           H+0
+ATOM     19  H15 LNT     0      -1.668  -0.522   1.187  1.00 20.00           H+0
+ATOM     20  H17 LNT     0      -2.897   0.751  -1.299  1.00 20.00           H+0
+ATOM     21 H17A LNT     0      -2.816  -1.001  -0.996  1.00 20.00           H+0
+ATOM     22  H18 LNT     0      -4.153   1.017   0.860  1.00 20.00           H+0
+ATOM     23  H19 LNT     0      -5.358  -0.964  -1.125  1.00 20.00           H+0
+ATOM     24 H19A LNT     0      -6.274   0.047   0.019  1.00 20.00           H+0
+ATOM     25 H19B LNT     0      -5.352   0.807  -1.300  1.00 20.00           H+0
+ATOM     26  H20 LNT     0      -3.291  -1.026   1.971  1.00 20.00           H+0
+ATOM     27 H20A LNT     0      -5.070  -1.024   1.929  1.00 20.00           H+0
+ATOM     28 H20B LNT     0      -4.154  -2.034   0.785  1.00 20.00           H+0
+ATOM     29 HO21 LNT     0      -0.379  -2.039  -0.304  1.00 20.00           H+0
+ATOM     30 HO22 LNT     0      -0.352   1.842  -1.258  1.00 20.00           H+0
+ATOM     31 HN23 LNT     0       0.783   1.094   0.828  1.00 20.00           H+0
+ATOM     32  H24 LNT     0       1.825   0.003  -1.431  1.00 20.00           H+0
+ATOM     33  OXT LNT     0       3.803  -1.734  -0.570  1.00 20.00           O+0
+ATOM     34  H27 LNT     0       3.958   0.956  -0.578  1.00 20.00           H+0
+ATOM     35 HOG1 LNT     0       3.918   1.791   1.659  1.00 20.00           H+0
+ATOM     36  H29 LNT     0       3.159   3.245  -0.283  1.00 20.00           H+0
+ATOM     37 H29A LNT     0       2.118   2.425  -1.471  1.00 20.00           H+0
+ATOM     38 H29B LNT     0       1.549   2.659   0.199  1.00 20.00           H+0
+ATOM     39  HXT LNT     0       4.155  -2.594  -0.302  1.00 20.00           H+0
+CONECT    1    2   17   18
+CONECT    2    3    4   19    1
+CONECT    3    2   10    8    9
+CONECT    4    5    2   20   21
+CONECT    5    4    6    7   22
+CONECT    6    5   23   24   25
+CONECT    7    5   26   27   28
+CONECT    8    3   29
+CONECT    9    3   30
+CONECT   10    3   11   31
+CONECT   11   12   14   32   10
+CONECT   12   11   13   33
+CONECT   13   12
+CONECT   14   11   16   34   15
+CONECT   15   14   35
+CONECT   16   14   36   37   38
+CONECT   17    1
+CONECT   18    1
+CONECT   19    2
+CONECT   20    4
+CONECT   21    4
+CONECT   22    5
+CONECT   23    6
+CONECT   24    6
+CONECT   25    6
+CONECT   26    7
+CONECT   27    7
+CONECT   28    7
+CONECT   29    8
+CONECT   30    9
+CONECT   31   10
+CONECT   32   11
+CONECT   33   12   39
+CONECT   34   14
+CONECT   35   15
+CONECT   36   16
+CONECT   37   16
+CONECT   38   16
+CONECT   39   33
+END

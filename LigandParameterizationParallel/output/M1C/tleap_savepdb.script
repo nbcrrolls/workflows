@@ -1,0 +1,7 @@
+source leaprc.ff99SB
+source  leaprc.gaff
+loadAmberPrep M1C.prepc
+loadAmberParams M1C.frcmod
+c=MOL
+savepdb c M1C-new.pdb
+quit

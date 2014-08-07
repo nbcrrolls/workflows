@@ -1,0 +1,7 @@
+source leaprc.ff99SB
+source  leaprc.gaff
+loadAmberPrep LNT.prepc
+loadAmberParams LNT.frcmod
+c=MOL
+savepdb c LNT-new.pdb
+quit

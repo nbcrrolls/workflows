@@ -1,0 +1,7 @@
+source leaprc.ff99SB
+source  leaprc.gaff
+loadAmberPrep LTA.prepc
+loadAmberParams LTA.frcmod
+c=MOL
+savepdb c LTA-new.pdb
+quit

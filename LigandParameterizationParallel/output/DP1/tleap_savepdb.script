@@ -1,0 +1,7 @@
+source leaprc.ff99SB
+source  leaprc.gaff
+loadAmberPrep DP1.prepc
+loadAmberParams DP1.frcmod
+c=MOL
+savepdb c DP1-new.pdb
+quit
