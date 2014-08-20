@@ -1,31 +1,23 @@
 Workflows
-    GromosClustering
-    VirtualScreening
-    LigandParameterization
+    CreateDirectoryCopy 
     LigandParameterizationParallel
+    LigandParameterizationSerial
+    PDBtoPDBQTReceptor
+	ReceptorStructuralClustering
+    TrajectoryConcatenate
+	VSPerformanceStatistic
+    VirtualScreening
 
 Actors
-    TrajectoryListing
-    PDBCreator
-    PDBModifier
-    AtomSelection
-    Clustering
-    CreateDirectoryCopy 
-    MatlabStatistic
-    PDBtoPDBQTReceptor
-    TrajectoryConcatenate
-    FolderCreator
-    Vina
     
 Tags
+	Amber
     createDirectory
-    AmberTools 
-    OpalServer 
     Matlab
-    PDBtoPDBQT
+    OpalServer 
+    Parameterization
     Vina
     VMD
-    Trajectories - is this really needed?
 
 Types
     Clustering 
@@ -34,8 +26,6 @@ Types
     MD Simulation
     Statistics
     Utilities
-
-    TrajectoryAnalysis - can this be in Clustering or Electrostatic?
 
 Directors
     DDF
