@@ -16,8 +16,8 @@ Purpose
    best able to discriminate known binders from known non-binders. Two CSV input files are required for this 
    actor/workflow because out of the four algorithm used to perform the statistical calculations, two required 
    nonbonding events to be represented as 0 and the other two required them to be represented as 9999999. For 
-   more information about this actor/workflow, please refer back to “Progress towards automated Kepler scientific 
-   workflows for computer-aided drug discovery and molecular simulations” section 3.7.
+   more information about this actor/workflow, please refer back to "Progress towards automated Kepler scientific 
+   workflows for computer-aided drug discovery and molecular simulations" section 3.7.
 
 Parameters
    Parameter name (Parameter shorthand for workflow if running on terminals)

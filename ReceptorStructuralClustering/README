@@ -56,12 +56,12 @@ Operating System Requirement
    Linux
 
 Notes
-   This clustering workflow was built with Kepler actors. Amber tool – cpptraj – is required to run the workflow. 
+   This clustering workflow was built with Kepler actors. Amber tool cpptraj is required to run the workflow. 
    Please make sure cpptraj is installed and the path to cpptraj is stored in bash file. Amber13 tools is licensed 
    under GNU (General Public License) and is free to the general public. You can download cpptraj in the Amber 
-   website “http://ambermd.org/#AmberTools”. Gromos clustering is done on the NBCR (National Biomedical Computation 
+   website http://ambermd.org/#AmberTools. Gromos clustering is done on the NBCR (National Biomedical Computation 
    Resource) web server. More available software provide by NBCR can be found in the following link 
-   “http://nbcr-222.ucsd.edu/opal2/dashboard?command=serviceList”.
+   http://nbcr-222.ucsd.edu/opal2/dashboard?command=serviceList
 
 Benchmark
 # of frames     # of Atoms to cluster           Timescale
