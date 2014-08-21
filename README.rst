@@ -11,7 +11,7 @@ Workflow documentation requirements
    + workflow PNG image 
    + workflow kar file 
    + text file ``description`` which contains a describing  of the workflow. 
-     Please see a section below describing the file format and an example ``description-template`` file.
+     Please see a section below describing the file format and an example ``templates/description-workflow`` file.
    + README file with any additional information about the workflow.
      If there are any extra files intended for download with the workflow  
      they must be listed in README. 
@@ -20,7 +20,7 @@ Workflow documentation requirements
    + Optional: any extra files (documentation, notes, etc.) that will
      be distributed with the workflow. Must be listed in README. 
 
-#. **File "description-template" format**
+#. **File "templates/description-workflow" format**
 
    This file consists of a description of a worflow as  key-value pairs.  Keywords are ordered one per line followed by 
    keyword values.  Values can have multiple lines. The following keywords are required:
@@ -37,17 +37,17 @@ Workflow documentation requirements
      MDsimulation, Utilities. More values will be added when more workflows
      are created.
    + **Director** a kepler director. Valid values: DDF, DDP, PN, SDF. Can be only one director.
-   + **Actor** list of actors used in the workflow (names separated bhy spaces). Default value is none
+   + **Actor** list of actors used in the workflow (names separated by spaces). Default value is None
    + **Purpose**  short description of what this workflow does.
    + **Required software** description of the prerequisite software. Can be 1 or more
      lines, one software item per line. If no software is required the value is none.
    + **Parameters** description of worflow parameters, one parameter per paragraph.
      Each description starts with a parameter short name followed by
      the explanation text of wht this parameter does. Note text alignment.
-   + **Overview** any addition information about the workflow specifics. Default value is none
+   + **Overview** any addition information about the workflow specifics.  Default value is None
    + **Usage** a short description of how to use the workflow
 
-   See an example *description-template* file.
+   See an example ``templates/description-workflow`` file.
 
 
 #. **Versioning convention**
