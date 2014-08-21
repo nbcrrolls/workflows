@@ -1,0 +1,272 @@
+.h1 {
+    color: #004455;
+    font-size: 1.3em;
+    font-weight: bold;
+    text-align: center;
+    padding: 12px 5px 12px 5px;
+}
+
+h2, h4 {
+    font-weight: bold;
+    color: #006677;
+}
+
+h3 {
+    color: #004455;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+a,
+a code {
+    color: #212630;
+    text-decoration: none;
+}
+
+#options a {
+  background-color: #aabbcc;
+  border-radius: 9px 9px 9px 9px;
+  color: #FFFFFF;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: normal;
+  margin: 2px 0 1px;
+  padding: 1px 5px;
+  text-decoration: none;
+  transition-duration: 0.2s;
+  transition-property: background-color, color;
+  white-space: nowrap;
+}
+
+#options a:hover {
+    background-color: #445577;
+    color: #FFFFFF;
+}
+
+#options a.selected {
+    background-color: #0A9FE1;
+    text-shadow: none;
+    color: white;
+}
+
+#options input {
+    display: block;
+    padding: 0.4em 0.5em;
+    width: auto;
+}
+
+#bioactors a {
+    background-color: #199698;
+    border-radius: 9px 9px 9px 9px;
+    color: white;
+    display: inline-block;
+    font-size: 25px;
+    font-weight: normal;
+    margin: 2px 0 2px;
+    padding: 5px 5px;
+    text-decoration: none;
+    transition-duration: 0.2s;
+    transition-property: background-color, color;
+    white-space: nowrap;
+}
+
+#bioactors a:hover {
+    color: #2cf818;
+}
+
+#bioactors ul {
+    list-style-type: none;
+    margin:0;
+    padding:0;
+}
+
+#bioactors li {
+    list-style-type: none;
+    margin:0;
+    padding:0;
+}
+
+/**** Isotope Filtering ****/
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+/**** Isotope CSS3 transitions ****/
+.isotope,
+.isotope .isotope-item {
+  -webkit-transition-duration: 0.8s;
+     -moz-transition-duration: 0.8s;
+      -ms-transition-duration: 0.8s;
+       -o-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+     -moz-transition-property:    -moz-transform, opacity;
+      -ms-transition-property:     -ms-transform, opacity;
+       -o-transition-property:      -o-transform, opacity;
+          transition-property:         transform, opacity;
+}
+
+/**** disabling Isotope CSS3 transitions ****/
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+     -moz-transition-duration: 0s;
+      -ms-transition-duration: 0s;
+       -o-transition-duration: 0s;
+          transition-duration: 0s;
+}
+
+.item {
+  width: 320px;
+  height: 200px;
+  margin: 5px;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  border-style: solid;
+  border: 3px solid #aabbcc;
+  -webkit-border--radius: 0.8em;
+      -moz-border-radius: 0.8em;
+           border-radius: 0.8em;
+}     
+
+.workflow-full {
+    width: 700px;
+    display: inline;
+    margin: 5px 0px 0px 13px;
+    overflow: hidden;
+    -webkit-border--radius: 1.2em;
+       -moz-border-radius: 1.2em;
+            border-radius: 1.2em;
+}
+
+.workflow-thumb {
+	width: 290px;
+	height: 160px;
+    display: inline;
+    margin: 2px 5px 5px 0px;
+    overflow: hidden;
+    -webkit-border--radius: 0.6em;
+       -moz-border-radius: 0.6em;
+            border-radius: 0.6em;
+}
+
+.workflow-name {
+  bottom: 1.6em;
+  display: block;
+  left: 0.5em;
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #004455;
+  margin: 0px;
+  text-align: center;
+}
+
+.actor-image-div {
+  height: 150px;
+  overflow: hidden; 
+}
+
+.actor-image {
+  height:200%;
+  width:auto;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.caution {
+    color: #AA0000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.actor {
+    font-size: 0.9em;
+    background-color: #009999;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 0 4px 0 4px ;
+    -webkit-border--radius: 1.2em;
+       -moz-border-radius: 1.2em;
+            border-radius: 1.2em;
+}
+
+.menuitem {
+    color: #777777;
+    border: 1px solid #C0C7C7;
+    padding: 0 4px 0 4px ;
+    font-size: 0.9em;
+}
+
+.vars {
+    color: #777777;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.reglink {
+    color: #0000CC;
+    text-decoration: underline;
+}
+
+.cspnumber {
+    color: #049694;
+    display: block;
+    font-size: 0.8em;
+    font-weight: bold;
+    padding: 3px, 0px, 3px, 0px;
+    text-align: center;
+    background: #edf9f9;
+}
+.dbpnumber {
+    color: #00aaff;
+    display: block;
+    font-size: 0.8em;
+    font-weight: bold;
+    padding: 3px, 0px, 3px, 0px;
+    text-align: center;
+    background: #ddeeff;
+}
+
+.csptitle,
+.dbptitle {
+    color: #000033;
+    bottom: 1.6em;
+    display: block;
+    left: 0.5em;
+    font-size: 0.8em;
+    font-weight: bold;
+    padding: 2px 5px 2px 5px;
+}
+
+.options {
+    color: #008899;
+    display: block;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 5px 5px 5px 5px;
+}
+
+
+.param {
+    color: #008899;
+	    font-weight: bold;
+}
