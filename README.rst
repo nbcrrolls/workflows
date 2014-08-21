@@ -10,12 +10,14 @@ Workflow documentation requirements
    
    + workflow PNG image 
    + workflow kar file 
-   + text file "description" which contains a describing  of the workflow. 
-     Please see a  a section describing the file format below and an example *description-template* file.
+   + text file ``description`` which contains a describing  of the workflow. 
+     Please see a section below describing the file format and an example ``description-template`` file.
    + README file with any additional information about the workflow.
      If there are any extra files intended for download with the workflow  
      they must be listed in README. 
-   + Optional: any extra files (documentation, examples, etc.) that will
+   + ``input/`` directory with example input files
+   + ``output/`` directory with example output for the example input input files
+   + Optional: any extra files (documentation, notes, etc.) that will
      be distributed with the workflow. Must be listed in README. 
 
 #. **File "description-template" format**
@@ -71,6 +73,8 @@ Workflow documentation requirements
    + LigandSimulation_1.2.3.png
    + description
    + README
+   + input/
+   + output/
    + LigandSimulation_1.2.3.notes (optional file)
 
 
@@ -85,18 +89,18 @@ Workflows are distributed as tar.gz files which must contain :
 
 Naming convention: WorkflowName_1.2.tar.gz 
 
-File "workflow-list" 
+File "listing.rst" 
 ------------------------
 
 This file keeps track of the names for workflows, actors, types and tags.
-Please ocnsult this file when creating new workflows and update accordingly
+Please consult this file when creating new workflows and update accordingly
 when creating new workflows.
 
 Adding a new workflow
 ------------------------
 
 + create a directory either in workflows/ or actors/ 
-+ in the *workflow-list*
++ in the *listing.rst*
 
    - add workflow name 
    - add new tags or types (if any) 
