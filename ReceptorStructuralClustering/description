@@ -16,13 +16,13 @@ Type
 Director
    SDF
 Actor 
-   none
+   None
 Purpose
    This clustering workflow enables users to input simulations trajectories and to use gromos clustering method
    to cluster structures based on rmsd similarity
 Required Software
    Kepler 2.4 or above
-   AmberTools 12 or 13 (AmberTools 14 is currently under development) 
+   AmberTools 12 or 13 
 Parameters
    dd  Trajectories directory. This should be the complete path to the trajectories directory. 
 
@@ -86,7 +86,7 @@ Parameters
    ac  True or False. If true, alignment will be done on alpha carbon. If false, alignment will be done on the atoms selected 
        also for clustering. Default is False.
 Overview
-   none
+   None
 Usage
    There are two ways to run this workflow. One is through the graphic interface. After the workflow is opened, 
    users can double click the parameters to change their values and press the play button to start. Another way 

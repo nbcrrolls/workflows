@@ -15,7 +15,7 @@ Type
 Director
    PN
 Actor
-   none
+   None
 Purpose
    This workflow uses the NBCR opal server to run the pdb-to-pdbqt function implemented in Autodock. 
    Users does not need to have Autodock installed in their local machines. Receptor pdb files are converted 
@@ -30,6 +30,7 @@ Parameters
 
     Path  This is the directory where all outputs will be downloaded and stored.
 Overview
+   None
 Usage
     There are two ways to run this workflow. One is through the graphic interface. After the workflow is 
 	opened, users can double click the parameters to change their values and press the play button to start. 

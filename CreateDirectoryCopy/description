@@ -15,10 +15,10 @@ Type
 Director 
     PN
 Actor 
-    none
+    None
 Purpose 
-    This workflow reads a list of pdb files, creates new directories using the pdb 
-    file names and copies the pdb files to corresponding new directories. 
+    This workflow reads a list of pdb files, creates new directories using the 
+    pdb file names and copies the pdb files to corresponding new directories. 
 Required Software
     Kepler2.4 or above
 Parameters
@@ -32,7 +32,7 @@ Parameters
        files are retained for creating directories. Default is .pdb. It can be changed 
        to .*mae$$ or .*sdf$$ if .mae extension or .sdf extension are provided instead of .pdb extension.
 Overview
-    none
+    None
 Usage 
     There are two ways to run this workflow. One is through the graphic interface. After the workflow 
     is opened, users can double click the parameters to change their values and press the play button to 

@@ -15,7 +15,7 @@ Type
 Director
    PN
 Actor
-   none
+   None
 Purpose
    This workflow takes a list of receptor and ligand PDBs from a receptor directory and a  ligand directory, 
    respectively and convert them to Vina input files (PDBQT). Each receptor is paired with a ligand to 
@@ -23,9 +23,9 @@ Purpose
    Vina for docking. Users can choose either to run Vina locally or on the NBCR web server in the Vina actor.
 Required Software
    Kepler 2.4 or above
-   Kepler Trunk verison (OPTIONAL)
    biokepler 1.0 or above
    MGLTools 1.5.6
+   Kepler Trunk verison (optional)
 Parameters
    rd    This parameter requires the complete path to the directory which contains all the receptors of interest. 
          Receptor directory should be separate from ligand directory. 
@@ -55,7 +55,7 @@ Parameters
    size_z     This parameter specifies the length of the grid box extended from the z-axis center.
 
 Overview
-   none
+   None
 Usage
    There are two ways to run this workflow. One is through the graphic interface. After the workflow is 
    opened, users can double click the parameters to change their values and press the play button to start. 

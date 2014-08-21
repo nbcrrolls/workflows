@@ -15,7 +15,7 @@ Type
 Director
    PN
 Actor
-   none
+   None
 Purpose
    This workflow parameterize small molecules in parallel. It takes a list of pdb files stored in a local directory 
    and creates corresponding sub-directories using the pdb file names. Parameterization of each small molecule will 
@@ -39,7 +39,7 @@ Parameters
     n   the number of pdb that is going to parameterize in a single run. For example, if user has five small molecules 
 	    in a single directory that need to parameterize, n will be set to five.
 Overview
-    none
+    None
 Usage
     There are two ways to run this workflow. One is through the graphic interface. After the workflow is opened, 
     users can double click the parameters to change their values and press the play button to start. Another way is 

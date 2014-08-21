@@ -16,7 +16,7 @@ Type
 Director
    SDF
 Actor
-   none
+   None
 Purpose
    This workflow parameterize small molecules which uses antechamber and Gaussian09 to calculate electrostatic 
    potential. Amber suite and Gaussian09 must be installed in order to run this workflow. The final output 
@@ -32,7 +32,7 @@ Parameters
 
     d  Directory where the small molecule pdb is located and where all the sequential jobs will be executed.
 Overview
-    none
+    None
 Usage
     There are two ways to run this workflow. One is through the graphic interface. After the workflow is 
 	opened, users can double click the parameters to change their values and press the play button to start. 
