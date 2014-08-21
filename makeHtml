@@ -22,7 +22,7 @@ class Description:
 		self.Sw       = self.setItem(ldict["Required Software"], lines)
 		self.Overview = self.setParagraph(ldict["Overview"], lines)
 		self.Usage    = self.setParagraph(ldict["Usage"], lines)
-		self.Params   = self.setParagraph(ldict["Parameters"], lines)
+		self.Parameters   = self.setParagraph(ldict["Parameters"], lines)
 
 	def getName(self):
 		return self.Name
@@ -51,6 +51,21 @@ class Description:
 	def getActorList(self):
 		return self.Actor.split()
 
+	def getPurpose(self):
+		return self.Purpose
+
+	def getSw(self):
+		return self.Sw
+
+	def getOverview(self):
+		return self.Overview
+
+	def getUsage(self):
+		return self.Usage
+
+	def getParameters(self):
+		return self.Parameters
+
 	def setWord(self, vals, lines):
 		str = lines[vals[0]]
 		return  str.strip(" \t\n\r")
@@ -69,7 +84,8 @@ class Description:
 		para = ""
 		for i in vals:
 			str = lines[i]
-			str = str.lstrip(" ")
+			str = str.strip(" \t\n\r")
+			str = str.lstrip(" ")  # strip spaces at the string beginning 
 			if len(str) <=1:
 				paras.append(para)
 				para = ""
@@ -131,7 +147,7 @@ class TextParser:
 		self.wflist = [] # list of items describing workflows
 		self.alist = []  # list of items describing actors
 		self.pattern = 'description' # filename for a worfklow or actor definition
-		self.template = 'description-template' # template file  with required fields
+		self.template = 'templates/description-workflow' # template file  with required fields
 		self.keys = []   # keywords from descriptions, used for descriptions verification
 
 		# used for writing filters in main html file
@@ -142,7 +158,7 @@ class TextParser:
 		self.filterFormat ="\t\t    <a href=\"#\" data-filter-value=\".%s\">%s</a>\n" # formatting string
 
 		# html directory tree layout
-		self.htmldir = "workflows"
+		self.htmldir = "workflows" 
 		self.htmlWfDir = "%s/wf" % self.htmldir
 		self.htmlActorDir = "%s/actor" % self.htmldir
 		self.indexhtml = "index.html"
@@ -152,7 +168,7 @@ class TextParser:
 		self.naturalSort(files)
 		self.wflist = files
 
-		files = glob.glob('%sactors/*/%s' % (self.basedir, self.pattern) )
+		files = glob.glob('%s/actors/*/%s' % (self.basedir, self.pattern) )
 		self.naturalSort(files)
 		self.alist = files
 
@@ -214,7 +230,7 @@ class TextParser:
 	def writeFilterDiv(self, name, items):
 		""" write div section for a type identified by name and items list """
 		txt = ""	
-		txt += "\t\t<h3>%s</h3>\n" % name
+		txt += "\t\t<span class=\"options\">%s</span>\n" % name
 		txt += "\t\t  <div id=\"%sFilters\" class=\"filter-set option-set\" data-filter-group=\"%s\">\n" % (name, name)
 		for i in items:
 			txt += self.filterFormat % (i,i)
@@ -264,10 +280,14 @@ class TextParser:
 		txt += "</head>\n\n"
 		txt += "<body>\n"
 		txt += "\t<table>\n"
+
+		# add title 
+		txt += "\t  <tr><td colspan=\"2\" class=\"h1\">NBCR Workflow Browser</td></tr>\n"
 		txt += "\t  <tr>\n"
 
 		# add filters 
 		txt += "\t  <td id=\"options\" style=\"width:20%; height:100%; vertical-align:top;\">\n"
+		txt += "\t\t<h3>Options Selector</h3>\n" 
 		txt += self.collectFilters()
 		txt += "\t  </td>\n\n"
 
@@ -277,7 +297,7 @@ class TextParser:
 		txt += "\t  </td>\n\n"
 
 		# add footer
-		txt += "\t</tr></table>\n"
+		txt += "\t  </tr>\n\t</table>\n"
 		txt += "</body>\n"
 		txt += "</html>\n"
 
@@ -345,12 +365,13 @@ class TextParser:
 		txt += "  <link rel=\"stylesheet\" href=\"../../../lib/style.css\" />\n"
 		txt += "</head>\n"
 		txt += "<body>\n"
-		txt += "  <h1 style=\"text-align:center;\">%s workflow</h1>\n" % Name
+		txt += "  <h2 style=\"text-align:center;\">%s workflow</h2>\n" % Name
+		txt += "  <h4 style=\"text-align:center;\"><a class=\"reglink\" href=\"../../../index.html\">Back to workflows browser<a/></h4>\n"
 		txt += "  <table>\n"
 		txt += "    <tr>\n"
 
 		# write actors
-		txt += "      <td id=\"actors\" style=\"width:10%; height:100%; vertical-align:top;\">\n"
+		txt += "      <td id=\"actors\" style=\"width:15%; height:100%; vertical-align:top;\">\n"
 		actors = item.getActorList()
 		if len(actors):
 			txt += "        <h3>Actors</h3>\n"
@@ -360,12 +381,22 @@ class TextParser:
 			txt += "        </ul>\n"
 		txt += "      </td>\n"
 	
-		txt += "      <td style=\"width:90%; vertical-align:top;\">"
-		txt +="<img src=\"%s\"></td>\n" % Image
+		# write image info
+		txt += "      <td style=\"vertical-align:top;\">"
+		txt +="<img class=\"workflow-full\" src=\"%s\"></td>\n" % Image
 		txt += "    </tr>\n"
 
 		# other parts of description
-		# FIXME
+		Purpose = item.getPurpose()
+		txt += self.writeParagraph("Purpose", Purpose)
+		Sw = item.getSw()
+		txt += self.writeParagraph("Required Software", Sw)
+		Overview = item.getOverview()
+		txt += self.writeParagraph("Overview", Overview)
+		Usage = item.getUsage()
+		txt += self.writeParagraph("Usage", Usage)
+		Parameters = item.getParameters()
+		txt += self.writeList("Parameters", Parameters)
 
 		# html footer 
 		txt += "  </table>\n"
@@ -373,6 +404,38 @@ class TextParser:
 		txt += "</html>\n"
 
 		return txt
+
+	def writeParagraph(self, word, items):
+		br = ""
+		if word == "Required Software" :
+			br = "<br>"
+		txt = "    <tr>\n"
+		txt += "      <td  style=\"vertical-align:top;\">\n"
+		txt += "      <h4>%s</h4>\n" % word
+		txt += "      </td>\n" 
+		txt += "      <td  style=\"vertical-align:top;\">\n"
+		for i in items:
+			txt += "      %s%s\n" % (i,br)
+		txt += "      </td>\n"
+		txt += "    </tr>\n"
+
+		return txt
+
+	def writeList(self, word, items):
+		txt = "    <tr>\n"
+		txt += "      <td  style=\"vertical-align:top;\">\n"
+		txt += "      <h4>%s</h4>\n" % word
+		txt += "      </td>\n" 
+		txt += "      <td  style=\"vertical-align:top;\">\n"
+		for i in items:
+			ind = i.find(" ") # first word is parameter name
+			name = "<span class=\"param\">%s</span>" % i[0:ind]
+			txt += "      <p>%s%s</p>\n" % (name, i[ind:])
+		txt += "      </td>\n"
+		txt += "    </tr>\n"
+
+		return txt
+
 
 	def writeWorkflowFiles(self):
 		for item in self.wfContent:
@@ -401,8 +464,6 @@ class TextParser:
 		self.getDescriptions()
 		self.writeTopHtml()
 		self.writeWorkflowFiles()
-
-		print "DEBUG", self.wflist
 
 if __name__ == "__main__":
 		app = TextParser(sys.argv)
