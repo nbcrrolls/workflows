@@ -4,6 +4,7 @@ import os
 import os.path
 import sys
 import glob
+import shutil
 
 class Description:
 	def __init__(self, ldict, lines):
@@ -23,8 +24,32 @@ class Description:
 		self.Usage    = self.setParagraph(ldict["Usage"], lines)
 		self.Params   = self.setParagraph(ldict["Parameters"], lines)
 
-		print "NAME=", self.Name, 
-		for i in self.Params: print "param=%s=" % i
+	def getName(self):
+		return self.Name
+
+	def getType(self):
+		return self.Type
+
+	def getDirector(self):
+		return self.Director
+
+	def getClass(self):
+		return self.Class 
+
+	def getTag(self):
+		return self.Tag
+
+	def getTagList(self):
+		return self.Tag.split()
+
+	def getImage(self):
+		return self.Image
+
+	def getActor(self):
+		return self.Actor
+
+	def getActorList(self):
+		return self.Actor.split()
 
 	def setWord(self, vals, lines):
 		str = lines[vals[0]]
@@ -74,7 +99,7 @@ class TextParser:
 		""" print usage """
 		print 'Usage: %s [DIR]\n\n' % self.usageName,  \
 			  'DIR - optional base directory for workflows and actors \n',  \
-			  '	  If none provided assume current directory.\n', 
+			  '      If none provided assume current directory.\n', 
 		sys.exit(0)
 
 	def checkArgs(self, argv):
@@ -105,17 +130,22 @@ class TextParser:
 	def setDefaults(self):
 		self.wflist = [] # list of items describing workflows
 		self.alist = []  # list of items describing actors
-		self.pattern = 'description' # description file to read
-		self.template = 'description-template' # description template file 
-		self.keys = []
+		self.pattern = 'description' # filename for a worfklow or actor definition
+		self.template = 'description-template' # template file  with required fields
+		self.keys = []   # keywords from descriptions, used for descriptions verification
 
-		self.wordTitle = 'PROJECT TITLE'
-		self.wordPubs = 'RELEVANT PUBLICATIONS'
-		self.pubPrefix = "   .. role:: pubauthor\n\n   .. role:: pubtitle\n\n   .. role:: pubprint\n\n"
-		self.ext = ".rst"
-		self.divFile = "div-" + self.pattern 
-		self.divContent = ""
-		self.baseHtmlDir = "projects"
+		# used for writing filters in main html file
+		self.actors = []     # workflows actors 
+		self.directors = []  # workflows directors
+		self.tags = []       # workflows tags
+		self.types = []      # workflows types
+		self.filterFormat ="\t\t    <a href=\"#\" data-filter-value=\".%s\">%s</a>\n" # formatting string
+
+		# html directory tree layout
+		self.htmldir = "workflows"
+		self.htmlWfDir = "%s/wf" % self.htmldir
+		self.htmlActorDir = "%s/actor" % self.htmldir
+		self.indexhtml = "index.html"
 
 	def getFileList(self):
 		files = glob.glob('%s/*/%s' % (self.basedir, self.pattern) )
@@ -141,12 +171,119 @@ class TextParser:
 			if len(word): 
 				self.keys.append(word)
 
-
 	def getDescriptions(self):
+		# collect workflows content
+		self.wfContent = []
 		for fname in self.wflist:
 			ldict = self.readDescriptionFile(fname)
+			self.wfContent.append(ldict)
+		
+		# collect actors content
+		self.aContent = []
 		for fname in self.alist:
 			ldict = self.readDescriptionFile(fname)
+			self.aContent.append(ldict)
+
+	def collectFilters(self):
+		""" get all needed filters from workflows descriptions"""
+
+		# get filters by type
+		for i in self.wfContent:
+			self.types.append(i.getType())
+			self.directors.append(i.getDirector())
+			self.tags += i.getTagList()
+			self.actors += i.getActorList()
+
+		# write div for filters
+		txt = ""
+		self.types = list(set(self.types))
+		txt += self.writeFilterDiv("Types", self.types)
+
+		self.directors = list(set(self.directors))
+		txt += self.writeFilterDiv("Directors", self.directors)
+
+		self.tags = list(set(self.tags))
+		txt += self.writeFilterDiv("Tags", self.tags)
+
+		self.actors = list(set(self.actors))
+		if len(self.actors):
+			txt += self.writeFilterDiv("Actors", self.actors)
+
+		return txt
+
+	def writeFilterDiv(self, name, items):
+		""" write div section for a type identified by name and items list """
+		txt = ""	
+		txt += "\t\t<h3>%s</h3>\n" % name
+		txt += "\t\t  <div id=\"%sFilters\" class=\"filter-set option-set\" data-filter-group=\"%s\">\n" % (name, name)
+		for i in items:
+			txt += self.filterFormat % (i,i)
+		txt += "\t\t  </div>\n\n"
+		return txt
+
+	def collectContainers(self):
+		""" get """
+		txt = ""
+		txt += "\t\t<div id=\"container\">\n"
+		order = 0
+		for item in self.wfContent:
+			txt += self.writeContainerDiv(order, item)
+			order += 1
+		txt += "\t\t</div>\n"
+		return txt
+
+	def writeContainerDiv(self, order, desc):
+		txt = ""
+
+		Class = desc.getClass()
+		Type = desc.getType()
+		Name = desc.getName()
+		Image = desc.getImage()
+		Tags = desc.getTag()
+		Director = desc.getDirector()
+		path = "wf/%s/%s" % (Type, Name)
+
+		txt += "\t\t  <div id=\"_%d\" class=\"item %s %s %s %s %s\">\n" % (order, Class, Type, Name, Tags, Director)
+		txt += "\t\t\t<a href=\"%s/index.html\">\n" % path
+		txt += "\t\t\t  <img class=\"%s-thumb\" src=\"%s/%s\"/>\n" % (Class, path, Image)
+		txt += "\t\t\t  <span class=\"%s-name\">%s</span>\n" % (Class, Name)
+		txt += "\t\t\t</a>\n"
+		txt += "\t\t  </div>\n"
+
+		return txt
+
+	def writeTopHtml(self):
+		# add header
+		txt = "<!DOCTYPE html>\n"
+		txt += "<html>\n"
+		txt += "<head>\n"
+		txt += "\t<link rel=\"stylesheet\" href=\"lib/style.css\" />\n"
+		txt += "\t<script src=\"lib/jquery-1.9.0.min.js\"></script>\n"
+		txt += "\t<script src=\"lib/jquery.isotope.min.js\"></script>\n"
+		txt += "\t<script src=\"lib/selector.js\"></script>\n"
+		txt += "</head>\n\n"
+		txt += "<body>\n"
+		txt += "\t<table>\n"
+		txt += "\t  <tr>\n"
+
+		# add filters 
+		txt += "\t  <td id=\"options\" style=\"width:20%; height:100%; vertical-align:top;\">\n"
+		txt += self.collectFilters()
+		txt += "\t  </td>\n\n"
+
+		# add containers
+		txt += "\t  <td style=\"width:80%; vertical-align:top;\">\n"
+		txt += self.collectContainers()
+		txt += "\t  </td>\n\n"
+
+		# add footer
+		txt += "\t</tr></table>\n"
+		txt += "</body>\n"
+		txt += "</html>\n"
+
+		self.createDir(self.htmldir)
+		fname = "%s/%s" % (self.htmldir, self.indexhtml)
+		self.writeFile(fname, txt)
 
 	def readDescriptionFile(self, fname):
 		f = open(fname)
@@ -169,7 +306,6 @@ class TextParser:
 			ldict = {}
 
 		desc = Description(ldict, lines)
-
 		return desc
 
 	def verifyDescriptionKeys(self, ldict, fname):
@@ -183,179 +319,90 @@ class TextParser:
 			return 1 # error in description file
 		return 0
 
-	def createDescription(self, ldict, lines):
-		text = '' 
-		for key in self.keys:
-			 vals = ldict.get(key, None)
-			 if vals is not None:
-				if key != self.wordID:	  # add line heading
-					text += "|%s|\n" % key 
-				if key == self.wordID:	  # add project id line and heading
-					text += self.composeHeader(vals, lines)
-				elif key == self.wordTitle: # add project title line
-					text += self.composeTitleString(vals, lines)
-				elif key == self.wordPubs:  # add  publications lines
-					text += self.composePubString(vals, lines)
-				else:					   # add all other lines 
-					str = ''
-					for i in vals:
-					   str += "%s " % lines[i][:-1]
-					text += "   %s\n" % str
-		return text 
-
-	def makeContent(self, file):
-		f = open(file)
-		lines = f.readlines()
-		f.close()
-
-		ldict = {}
-		lnum = 0
-		for line in lines :
-			str = line[:-1]
-			if str in self.keys:
-				key = str
-				ldict[str] = []
-			else:
-				ldict[key].append(lnum)
-			lnum += 1
-
-		# add div content
-		self.composeDiv(lines, ldict)
-
-		# create and return rst content
-		text = '' 
-		for key in self.keys:
-			 vals = ldict.get(key, None)
-			 if vals is not None:
-				if key != self.wordID:	  # add line heading
-					text += "|%s|\n" % key 
-				if key == self.wordID:	  # add project id line and heading
-					text += self.composeHeader(vals, lines)
-				elif key == self.wordTitle: # add project title line
-					text += self.composeTitleString(vals, lines)
-				elif key == self.wordPubs:  # add  publications lines
-					text += self.composePubString(vals, lines)
-				else:					   # add all other lines 
-					str = ''
-					for i in vals:
-					   str += "%s " % lines[i][:-1]
-					text += "   %s\n" % str
-		return text 
-
-	def composeDiv(self, lines, ldict):
-		tags = "item %s " % self.pattern.upper()
-		# check for status
-		vals = ldict.get("STATUS", None)
-		if vals:
-			linenum = vals[0]
-			str = lines[linenum]
-			status = ["New", "Continuing", "Completed"]
-			for s in status: 
-				if s in str: 
-					tags += "%s " % s
-			# check for start date
-			ind = str.find("/")
-			if ind > -1 :
-				tags += "20%2s " % str[ind+1:ind+3]
-
-		# check for core 
-		vals = ldict.get("TR&D PROJECT", None)
-		if vals:
-			linenum = vals[0]
-			str = lines[linenum]
-			cores = ["1", "2", "3", "4"]
-			for c in cores:
-				if c in str:
-					tags += "Core%s " % c
-
-		# check for id 
-		id = None
-		vals = ldict.get(self.wordID, None)
-		if vals:
-			linenum = vals[0]
-			id = lines[linenum][:-1]
-
-		# check for title 
-		title = None
-		vals = ldict.get(self.wordTitle, None)
-		if vals:
-			title = ''
-			for i in vals:
-				title += lines[i]
-
-		# create div section
-		if not id: return
-		if not title: return
-		div  = '<div id=\"_%s%s\" class=\"%s\">\n' % (self.pattern, id, tags)
-		div += '<a href=\"%s/%s%s.html\">\n' % (self.baseHtmlDir, self.pattern, id)
-		div += '<span class=\"%snumber\">%s %s</span>\n' % (self.pattern, self.pattern.upper(), id)
-		div += '<span class=\"%stitle\">\n' %(self.pattern)
-		div += '%s' % title
-		div += '</span></a></div>\n\n'
-
-		self.divContent += div
-
-
-	def composeHeader(self, vals, lines):
-		if len(vals) > 1:
-			print "Error: project id is too long"
-
-		str = ''
-		for i in vals:
-			str += lines[i]
-		id = int(str)
-
-		header  = '.. highlight:: rest\n'
-		header += '.. include:: defn-rst\n\n'
-		header += '.. role:: project\n\n'
-		header += ':project:`%s %s`\n' % (self.pattern.upper(), id)
-		header += '---------------------------\n'
-		header += '.. index:: %s %s\n\n' % (self.pattern.upper(), id)
-
-		return header
-
-	def composeTitleString(self, vals, lines):
-			str = ''
-			for i in vals:
-				str += lines[i]
-
-			line = "   :index:`%s`\n" % str[:-1]
-			return line
-
-	def composePubString(self, vals, lines):
-			str = ''
-			if len(vals): # publications listed
-				str += self.pubPrefix
-			else:  # no publications 
-				str += "   NA\n" 
-			for i in vals:
-				str += "#.   | %s\n" % lines[i]
-			return str
-
-	def writeRST(self, fname, content):
-		outfile = fname + self.ext
-		f = open(outfile, "w")
+	def writeFile(self, fname, content):
+		f = open(fname, "w")
 		f.write(content)
 		f.close()
 
-	def writeDiv(self):
-		f = open(self.divFile, "w")
-		f.write(self.divContent)
-		f.close()
+	def createDir(self, path):
+		if not os.path.exists(path):
+			try:
+				os.makedirs(path, 0755)
+			except OSError as exception:
+				if exception.errno != errno.EEXIST:
+					raise
+
+	def createHtmlContent(self, item):
+		# get workflow info
+		Name = item.getName()
+		Type = item.getType()
+		Image = item.getImage()
+
+		# header 
+		txt = "<html>\n"
+		txt += "<head>\n"
+		txt += "  <title>%s</title>\n" % Name
+		txt += "  <link rel=\"stylesheet\" href=\"../../../lib/style.css\" />\n"
+		txt += "</head>\n"
+		txt += "<body>\n"
+		txt += "  <h1 style=\"text-align:center;\">%s workflow</h1>\n" % Name
+		txt += "  <table>\n"
+		txt += "    <tr>\n"
+
+		# write actors
+		txt += "      <td id=\"actors\" style=\"width:10%; height:100%; vertical-align:top;\">\n"
+		actors = item.getActorList()
+		if len(actors):
+			txt += "        <h3>Actors</h3>\n"
+			txt += "        <ul>\n"
+			for a in actors:
+				txt += "          <li><a href=\"../../../actors/%s/%s\">%s</a></li>\n" % (a, self.indexhtml, a)
+			txt += "        </ul>\n"
+		txt += "      </td>\n"
+	
+		txt += "      <td style=\"width:90%; vertical-align:top;\">"
+		txt +="<img src=\"%s\"></td>\n" % Image
+		txt += "    </tr>\n"
+
+		# other parts of description
+		# FIXME
+
+		# html footer 
+		txt += "  </table>\n"
+		txt += "</body>\n"
+		txt += "</html>\n"
+
+		return txt
+
+	def writeWorkflowFiles(self):
+		for item in self.wfContent:
+			Name = item.getName()
+			Type = item.getType()
+			Image = item.getImage()
+
+			# create directory tree
+			wfdir = "%s/%s/%s" % (self.htmlWfDir, Type, Name)
+			self.createDir(wfdir)
+
+			# write index.html 
+			fname = "%s/%s" % (wfdir, self.indexhtml)
+			content = self.createHtmlContent(item)
+			self.writeFile(fname, content)
+			imgsrc = "%s/%s" % (Name, Image)
+			imgdest = "%s/%s" % (wfdir, Image)
+			if not os.path.isfile (imgsrc):
+				sys.exit('ERROR: %s image file does not exist' % imgsrc)
+			shutil.copy(imgsrc, imgdest)
+
 
 	def run(self):
 		self.getFileList()
 		self.readTemplate()
 		self.getDescriptions()
-		sys.exit()
-		for file in self.files:
-			if os.path.isfile (file):
-				content = self.makeContent(file)
-				self.writeRST(file, content)
-			else:
-				print "Error: %s is not a file, skipping " % file
+		self.writeTopHtml()
+		self.writeWorkflowFiles()
 
-		self.writeDiv()
+		print "DEBUG", self.wflist
 
 if __name__ == "__main__":
 		app = TextParser(sys.argv)
