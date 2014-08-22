@@ -283,9 +283,10 @@ class TextParser:
 		Image = desc.getImage()
 		Tags = desc.getTag()
 		Director = desc.getDirector()
+		Actors = desc.getActor()
 		path = "wf/%s/%s" % (Type, Name)
 
-		txt += "\t\t  <div id=\"_%d\" class=\"item %s %s %s %s %s\">\n" % (order, Class, Type, Name, Tags, Director)
+		txt += "\t\t  <div id=\"_%d\" class=\"item %s %s %s %s %s %s\">\n" % (order, Class, Type, Name, Tags, Director, Actors)
 		txt += "\t\t\t<a href=\"%s/index.html\">\n" % path
 		txt += "\t\t\t  <img class=\"%s-thumb\" src=\"%s/%s\"/>\n" % (Class, path, Image)
 		txt += "\t\t\t  <span class=\"%s-name\">%s</span>\n" % (Class, Name)
