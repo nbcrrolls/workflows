@@ -17,7 +17,7 @@ Director
    SDF
 Actor 
    None
-Purpose
+Description
    This clustering workflow enables users to input simulations trajectories and to use gromos clustering method
    to cluster structures based on rmsd similarity
 Required Software

@@ -16,7 +16,7 @@ Director
    PN
 Actor
    None
-Purpose
+Description
    This workflow parameterize small molecules in parallel. It takes a list of pdb files stored in a local directory 
    and creates corresponding sub-directories using the pdb file names. Parameterization of each small molecule will 
    be done on corresponding sub-directories using Antechamber, tleap by Amber and Gaussian09. The final output is a 

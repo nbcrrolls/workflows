@@ -38,7 +38,7 @@ Workflow documentation requirements
      are created.
    + **Director** a kepler director. Valid values: DDF, DDP, PN, SDF. Can be only one director.
    + **Actor** list of actors used in the workflow (names separated by spaces). Default value is None
-   + **Purpose**  short description of what this workflow does.
+   + **Description**  short description of what this workflow does.
    + **Required software** description of the prerequisite software. Can be 1 or more
      lines, one software item per line. If no software is required the value is none.
    + **Parameters** description of worflow parameters, one parameter per paragraph.

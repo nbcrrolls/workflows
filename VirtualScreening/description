@@ -16,7 +16,7 @@ Director
    PN
 Actor
    None
-Purpose
+Description
    This workflow takes a list of receptor and ligand PDBs from a receptor directory and a  ligand directory, 
    respectively and convert them to Vina input files (PDBQT). Each receptor is paired with a ligand to 
    create an N(numbers of ligand) by M(numbers of receptors) matrix. Each pair of inputs will then pass to 

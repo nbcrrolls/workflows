@@ -16,7 +16,7 @@ Director
    PN
 Actor
    None
-Purpose
+Description
    This workflow uses the NBCR opal server to run the pdb-to-pdbqt function implemented in Autodock. 
    Users does not need to have Autodock installed in their local machines. Receptor pdb files are converted 
    into receptor pdbqt files using the workflow. Outputs are displayed in user default web browser and are 

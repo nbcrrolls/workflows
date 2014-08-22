@@ -16,7 +16,7 @@ Director
    DDF
 Actor
    None
-Purpose
+Description
    This workflow takes series of trajectories and concatenate them into one trajectory file named 
    _TRAJ_CONCAT_VMD_(TIME_THE_FILE_IS_CREATED)
 Required Software

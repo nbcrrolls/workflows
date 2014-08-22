@@ -16,7 +16,7 @@ Director
    SDF
 Actor
    None
-Purpose
+Description
    This workflow incorporates the experimental status of a compound, i.e. binder or non-binder, the docking 
    score of the compound in each receptor ensemble member, and returns the ensemble best able to discriminate 
    known binders from known non-binders. Two CSV input files are required for this actor/workflow because 
