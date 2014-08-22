@@ -235,15 +235,19 @@ class TextParser:
 		# write div for filters
 		txt = ""
 		self.types = list(set(self.types))
+		self.types.sort()
 		txt += self.writeFilterDiv("Types", self.types)
 
 		self.directors = list(set(self.directors))
+		self.directors.sort()
 		txt += self.writeFilterDiv("Directors", self.directors)
 
 		self.tags = list(set(self.tags))
+		self.tags.sort()
 		txt += self.writeFilterDiv("Tags", self.tags)
 
 		self.actors = list(set(self.actors))
+		self.actors.sort()
 		if len(self.actors):
 			txt += self.writeFilterDiv("Actors", self.actors)
 
@@ -400,6 +404,7 @@ class TextParser:
 		# write actors
 		txt += "      <td id=\"actors\" style=\"width:15%; height:100%; vertical-align:top;\">\n"
 		actors = item.getActorList()
+		actors.sort()
 		if len(actors):
 			txt += "        <h3>Actors</h3>\n"
 			txt += "        <ul>\n"
