@@ -15,7 +15,7 @@ Type
 Director 
     PN
 Actor 
-    blastall
+    None
 Description 
     This workflow reads a list of pdb files, creates new directories using the 
     pdb file names and copies the pdb files to corresponding new directories. 
