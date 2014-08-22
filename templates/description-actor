@@ -1,0 +1,35 @@
+Name
+    blastall
+Version
+    1.0.3
+Class
+    actor
+Kar
+    blastall_1.0.kar
+Image
+    blastall_1.0.png
+Description
+    An actor to perform alignment using NCBI blastall.
+Inputs
+    referenceFile The input file for reference sequences.
+
+    queryFile The input file for query sequences.
+
+Outputs
+    alignmentFile The output file that contains the alignment results.
+Parameters
+    eValue Expectation value.
+
+    outputFormatThe format option for output, namely alignment view options.
+
+    programName The name of blast program to be executed.
+
+    program The command line program to execute.
+
+    checkOutputTimestamp If true, verify the last modification timestamp for
+                         each output file has increased after execution. If the timestamp has not
+                         increased, throw an error.
+
+    additionalOptions Additional command line options to run blastall
+
+    Choice The execution choice to run.
