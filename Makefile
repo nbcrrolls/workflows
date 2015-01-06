@@ -11,17 +11,19 @@
 # directory name  for html distro
 NAME = workflows
 
-# direcotry with supporting js and css code
+# directory with supporting js and css code
 LIB  = lib
 
 html:
+	@echo "Creating workflow/ structure and html files"
 	bin/makeHTML
 	cp -p -r $(LIB) $(NAME)
 
-distro:	
+distro:	html
 	tar czvf $(NAME).tar.gz  $(NAME)
 	@echo
-	@echo "Created $(NAME).tar.gz"
+	@echo "Created distro $(NAME).tar.gz"
+	@echo "Untar $(NAME).tar.gz on webserver in /var/www/html"
 
 clean:
 	rm -rf $(NAME) $(NAME).tar.gz
