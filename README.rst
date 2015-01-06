@@ -100,7 +100,7 @@ Adding a new workflow
 ------------------------
 
 + create a directory either in workflows/ or actors/ 
-+ in the *listing.rst*
++ in the *listing.rst*:
 
-   - add workflow name 
-   - add new tags or types (if any) 
+  + add workflow name 
+  + add new tags or types (if any) 
