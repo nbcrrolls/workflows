@@ -161,7 +161,7 @@ class TextParser:
 	def setDefaults(self):
 		self.wflist = [] # list of items describing workflows
 		self.alist = []  # list of items describing actors
-		self.pattern = 'description' # filename for a worfklow or actor definition
+		self.pattern = 'description' # filename for a workflow or actor definition
 		self.template = 'templates/description-' # part of template filename, file specifies required fields
 		self.keys = []   # workflow keywords from description files 
 		self.akeys = []  # actors keywords from description files 
