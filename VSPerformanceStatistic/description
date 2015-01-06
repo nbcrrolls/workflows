@@ -19,29 +19,28 @@ Actor
 Description
    This workflow incorporates the experimental status of a compound, i.e. binder or non-binder, the docking 
    score of the compound in each receptor ensemble member, and returns the ensemble best able to discriminate 
-   known binders from known non-binders. Two CSV input files are required for this actor/workflow because 
-   out of the four algorithm used to perform the statistical calculations, two required nonbonding events 
-   to be represented as 0 and the other two required them to be represented as 9999999. For more information 
-   about this actor/workflow, please refer back to "Progress towards automated Kepler scientific workflows 
+   known binders from known non-binders. Two CSV input files are required for this workflow because 
+   out of the four algorithms used for the statistical calculations, two require nonbonding events 
+   to be represented as 0 and the other two require them to be represented as 9999999. For more information 
+   about this workflow, please refer back to "Progress towards automated Kepler scientific workflows 
    for computer-aided drug discovery and molecular simulations" section 3.7.
 Required Software
    Kepler 2.4 or above
    MATLAB R2013b or above
    MATLAB Parallelizing license (optional)
 Parameters
-   d      This is the directory where the input CSV file should be located and output files will be saved. 
-          The two CSV files should be in this user specific directory.  
+   d      This is the directory for the input CSV files and the output files. 
           
-   n      User specifies the number of ensemble receptor structures. For example, if user wants the best two 
-          ensemble receptor structures out of the eight structures they used for virtual screening, they will 
-          specify 2 for this parameter. 
+   n      Number of ensemble receptor structures. For example, if user wants the best 2 
+          ensemble receptor structures out of the 8 structures they used for virtual 
+		  screening, they will specify 2. 
           
-   high   This is the name for the CSV file that contains 999999 to represent non-binding events.
+   high   Name for the CSV file that contains 999999 to represent non-binding events.
    
-   zero   This is the name for the CSV file that contains 0 to represent non-binding events.
+   zero   Name for the CSV file that contains 0 to represent non-binding events.
 Overview
    None
 Usage
    There are two ways to run this workflow. One is through the graphic interface. After the workflow is opened, 
-   users can double click the parameters to change their values and press the play button to start. Another way 
-   is to run Kepler through command lines.
+   users can double-click the parameters to change their values and press the play button to start. Another way 
+   is to run Kepler via a command line.

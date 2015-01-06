@@ -12,11 +12,11 @@ Parameters:
 
     p  pattern that the workflow will use to identify all the pdb files. 
        Default is .*pdb$$. It can also be changed to .*mae$$ or .*sdf$$ 
-       if .mae extension or .sdf extension are provided instead of .pdb extension.
+       when .mae extension or .sdf extension are provided instead of .pdb extension.
 
     p2 pattern that will be replaced by an empty string. As a result, only the names of the 
-       gpdb files are retained for creating directories. Default is .pdb. It can be 
-       changed to .*mae$$ or .*sdf$$ if .mae extension or .sdf extension are provided instead of 
+       pdb files are retained for creating directories. Default is .pdb. It can be 
+       changed to .*mae$$ or .*sdf$$ when .mae extension or .sdf extension are provided instead of 
        .pdb extension.
 
 Input & Output

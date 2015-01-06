@@ -17,46 +17,40 @@ Director
 Actor
    None
 Description
-   This workflow takes a list of receptor and ligand PDBs from a receptor directory and a  ligand directory, 
-   respectively and convert them to Vina input files (PDBQT). Each receptor is paired with a ligand to 
-   create an N(numbers of ligand) by M(numbers of receptors) matrix. Each pair of inputs will then pass to 
-   Vina for docking. Users can choose either to run Vina locally or on the NBCR web server in the Vina actor.
+   This workflow takes a list of receptor and ligand PDBs from a receptor directory and a ligand directory 
+   respectively and converts them to Vina input files (PDBQT). Each receptor is paired with a ligand to 
+   create an N(number of ligands) x M(number of receptors) matrix. Each pair of inputs will pass to 
+   Vina for docking. Users can choose in the Vina actor to run Vina locally or on the NBCR web server.
 Required Software
    Kepler 2.4 or above
    biokepler 1.0 or above
    MGLTools 1.5.6
-   Kepler Trunk verison (optional)
 Parameters
-   rd    This parameter requires the complete path to the directory which contains all the receptors of interest. 
-         Receptor directory should be separate from ligand directory. 
+   rd    Full path to the directory which contains all the receptors of interest. 
+         Receptor and ligand directories should be different. 
 
-   ld    This parameter requires the complete path to the directory which contains all the ligands of interest. 
-         Ligand directory should be separate from receptor directory.
+   ld    Full path to the directory which contains all the ligands of interest. 
+         Receptor and ligand directories should be different. 
 
-   od    This parameter requires the complete path to the directory where all the outputs from docking will be 
-         found and stored in.	
+   od    Full path to the directory where all the docking outputs will be stored.	
 
-   mgld  This should be where the mgltools are installed. This should not be the complete path to where pythonsh 
-         file is located or where the prepare_receptor4.py or prepare_ligand4.py is. This should be the path before 
-         bin and MGLToolsPckgs are seperated. For example if the path to
-		 pythonsh is "/home/users/mgltools/bin/pythonsh", 
-         the value for this parameter should be "/home/users/mgltoos/"
+   mgld  Directory where the MGLtools are installed.  For example, "/home/users/mgltoos/".
 
-   center_x   This defines the center (x-axis) of the grid box.
+   center_x   The center (x-axis) of the grid box.
 
-   center_y   This defines the center (y-axis) of the grid box.
+   center_y   The center (y-axis) of the grid box.
 
-   center_z   This defines the center (z-axis) of the grid box.
+   center_z   The center (z-axis) of the grid box.
 
-   size_x     This parameter specifies the length of the grid box extended from the x-axis center
+   size_x     The length of the grid box extended from the x-axis center.
 
-   size_y     This parameter specifies the length of the grid box extended from the y-axis center
+   size_y     The length of the grid box extended from the y-axis center
 
-   size_z     This parameter specifies the length of the grid box extended from the z-axis center.
+   size_z     The length of the grid box extended from the z-axis center.
 
 Overview
    None
 Usage
    There are two ways to run this workflow. One is through the graphic interface. After the workflow is 
-   opened, users can double click the parameters to change their values and press the play button to start. 
-   Another way is to run Kepler through command lines. 
+   opened, users can double-click the parameters to change their values and press the play button to start. 
+   Another way is to run Kepler via a command line. 
