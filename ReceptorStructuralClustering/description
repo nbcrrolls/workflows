@@ -22,17 +22,22 @@ Description
    to cluster structures based on rmsd similarity
 Required Software
    Kepler 2.4 or above
-   AmberTools 12 or 13 
+   AmberTools 14 
 Parameters
    dd  Trajectories directory. This should be the full path to the trajectories directory. 
+       A complete path is ABSOLUTELY required
 
    dp  Trajectories pattern. Pattern examples: .*pdb$$ (all pdb files in the trajectories directory), 
        .*nc$$ (all nc files), .*mdcrd$$ (all mdcrd files), .*dcd$$ (all dcd files), .+size.*$$ (all files that 
-       contain size in the middle), and Size.*$$ (all files that contains Size in the begining)
+       contain size in the middle), and Size.*$$ (all files that contains Size in the begining).
+       NOTE: if a user is running the workflow on a command prompt, the trajectory pattern is slightly
+       different. For example, *.dcd$$ for (all dcd files) and *.nc$$ for (all nc files).
 
-   p   Location of the topology file. This should be a full path to the topology file. 
+   p   Location of the topology file. This should be a full path to the topology file including the
+       topology file. For example: [PATH]/p53_wt.top. A complete path is ABSOLUTELY required
 
    wd  Path of the work directory. This is where all the intermediate files and output files are stored. 
+       A complete path is ABSOLUTELY required
 
    cd  Name of the trajectory file which will contain all of the input trajectories. Default name is 
        _CLUSTER_CAT_ALL.mdcrd
@@ -63,6 +68,9 @@ Overview
 Usage
    There are two ways to run this workflow. One is through the graphic interface. After the workflow is opened, 
    users can double-click the parameters to change their values and press the play button to start. Another way 
-   is to run Kepler via a command line. It is recommended to run the clustering workflow from a command line, for example: 
-   /PATH/./kepler.sh -runkar -nogui -dd -dp -p -wd -cd -rd -ac -as -f -l -s -cf PATH_TO _KAR/kar_file 
+   is to run Kepler via a command line. It is recommended to run the clustering workflow from a command line, for 
+   example: /PATH/./kepler.sh -runkar -nogui -dd -dp -p -wd -cd -rd -ac -as -f -l -s -cf PATH_TO _KAR/kar_file 
    When using default values, a user does not need to include the corresponding flags when typing in command prompt.
+   Here is an example run:
+   [all in one line] Kepler -runwf -nogui -dd /home/input/ -p /home/input/p53_wt.top -wd /home/output/ -dp *.dcd$$ 
+   /home/Desktop/NBCR_Meetings/ReceptorStructuralClustering_1.0.kar

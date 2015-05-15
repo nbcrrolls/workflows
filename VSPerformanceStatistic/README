@@ -23,11 +23,15 @@ Parameters
    Parameter name (Parameter shorthand for workflow if running on terminals)
    directory (d)   	    This is the directory where the input CSV file should be located and output files 
                          will be saved. The two CSV files should be in this user specific directory.  
+  			 A complete path is ABSOLUTELY required.
    Number of Receptor (n)   User specifies the number of ensemble receptor structures. For example, if user 
                          wants the best two ensemble receptor structures out of the eight structures they used 
                          for virtual screening, they will specify 2 for this parameter. 
    high (high) 		    this is the name for the CSV file that contains 999999 to represent non-binding events.
    zero (zero) 		    this is the name for the CSV file that contains 0 to represent non-binding events.
+   Number of Processors(c)  Number of processors request. This workflow required users to have the MATLAB parallel 
+                           lisence installed and this command requests the number of CPU processors for running the 
+                           statistic jobs.
 
 Input & Output
    The CSV files can be created with the help of SCHRODINGER GLIDE docking program. The first column should 
@@ -37,11 +41,8 @@ Input & Output
    the input and output folders, respectively.
 
 Operating System Requirement
-
    Linux
 
 Caution
    This workflow is very memory intensive. It may take up all the RAM memory a user has on their computer. 
-   MATLAB Parallelizing license is optional. If a user does not have the MATLAB Parallelizing license, the 
-   workflow is defaulted to run in serial. However, there will be a huge speed up if matlab can split the 
-   calculation and run them simultaneously.
+   MATLAB Parallelizing license is required.

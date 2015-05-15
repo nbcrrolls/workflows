@@ -11,9 +11,10 @@ Purpose
 
 Parameters
     i     This is the input pdb file of interest. Users must supply the path to the pdb file
-          and the receptor pdb file.
+          and the receptor pdb file. A complete path is ABSOLUTELY required
     o     This is the name for the output pdbqt file. Only the name is necessary.
     Path  This is the directory where all outputs will be downloaded and stored.
+          A complete path is ABSOLUTELY required
 
 Input & Output   
     Input is a receptor pdb file and output is a receptor pdbqt file. Sample inputs and outputs are 

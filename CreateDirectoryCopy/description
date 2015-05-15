@@ -23,6 +23,7 @@ Required Software
     Kepler 2.4 or above
 Parameters
     d  directory where the pdb files are located and where the new directories will be created.
+       A complete path is ABSOLUTELY required
     
     p  pattern that the workflow will use to identify all the pdb files. 
        Default is .*pdb$$. It can also be changed to .*mae$$ or .*sdf$$ 
@@ -37,7 +38,7 @@ Usage
     There are two ways to run this workflow. One is through the graphic interface. After the workflow 
     is opened, users can double-click the parameters to change their values and press the play button to 
     start. Another way is to run Kepler via a command line:
-    /Applications/Kepler-2.4/Kepler.app/Contents/Resources/Java/kepler.sh -runwf 
+    [All in one line] /Applications/Kepler-2.4/Kepler.app/Contents/Resources/Java/kepler.sh -runwf 
     -nogui -d /Users/Documents/git/workflows/CreateDirectoryCopy/inputs/ -p2 .pdb 
     /Users/Documents/git/workflows/CreateDirectoryCopy/CreateDirectoryCopy_1.0.kar
 

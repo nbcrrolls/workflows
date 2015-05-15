@@ -24,13 +24,19 @@ Required Software
     Kepler 2.4 or above
 Parameters
     i     the input pdb file of interest. Users must supply the paths to the pdb file and the receptor pdb file.
+          A complete path is ABSOLUTELY required
 
     o     the name for the output pdbqt file. 
 
-    Path  This is the directory where all outputs will be downloaded and stored.
+    Path  This is the directory where all outputs will be downloaded and stored. A complete path is ABSOLUTELY 
+          required
 Overview
    None
 Usage
     There are two ways to run this workflow. One is through the graphic interface. After the workflow is 
 	opened, users can double-click the parameters to change their values and press the play button to start. 
-	Another way is to run Kepler via a command line.
+	Another way is to run Kepler via a command line:
+        kepler.sh -runwf -nogui -i -o -Path /PATH/PDBtoPDBQTReceptor_1.0.kar
+        such as:
+        [All in one line] /home/kepler.sh -runwf -nogui -i /home/p53_wt.pdb -o p53_wt -Path /home/outputs
+        /home/PDBtoPDBQTReceptor_1.0.kar

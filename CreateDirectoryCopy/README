@@ -9,6 +9,7 @@ Purpose
 
 Parameters: 
     d  directory where the pdb files are located and where the new directories will be created.
+       A complete path is ABSOLUTELY required.
 
     p  pattern that the workflow will use to identify all the pdb files. 
        Default is .*pdb$$. It can also be changed to .*mae$$ or .*sdf$$ 

@@ -20,7 +20,8 @@ Description
    This workflow takes a list of receptor and ligand PDBs from a receptor directory and a ligand directory 
    respectively and converts them to Vina input files (PDBQT). Each receptor is paired with a ligand to 
    create an N(number of ligands) x M(number of receptors) matrix. Each pair of inputs will pass to 
-   Vina for docking. Users can choose in the Vina actor to run Vina locally or on the NBCR web server.
+   Vina for docking. Users can choose by clicking on the Vina actor to either run Vina locally or on the 
+   NBCR web server.
 Required Software
    Kepler 2.4 or above
    biokepler 1.0 or above
@@ -28,13 +29,17 @@ Required Software
 Parameters
    rd    Full path to the directory which contains all the receptors of interest. 
          Receptor and ligand directories should be different. 
+         A complete path is ABSOLUTELY required
 
    ld    Full path to the directory which contains all the ligands of interest. 
          Receptor and ligand directories should be different. 
+         A complete path is ABSOLUTELY required
 
    od    Full path to the directory where all the docking outputs will be stored.	
+         A complete path is ABSOLUTELY required
 
    mgld  Directory where the MGLtools are installed.  For example, "/home/users/mgltoos/".
+         A complete path is ABSOLUTELY required
 
    center_x   The center (x-axis) of the grid box.
 
@@ -54,3 +59,7 @@ Usage
    There are two ways to run this workflow. One is through the graphic interface. After the workflow is 
    opened, users can double-click the parameters to change their values and press the play button to start. 
    Another way is to run Kepler via a command line. 
+   [all in one line] kepler.sh -runwf -nogui -rd -ld -od -mgld -center_x -center_y -center_z -size_x 
+   -size_y -size_z /Path/workflow.kar
+   For example:
+   kepler.sh -runwf -nogui -rd /p/receptors/ -ld /p/ligands/ -od /p/output/ -mgld /p/mglt/ /p/VS_workflow.kar 

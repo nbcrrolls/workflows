@@ -14,18 +14,19 @@ Parameter
 Parameter name (Parameter shorthand if running workflow using command prompt)    
    Receptor Directory (rd)  This parameter requires the complete path to the directory which 
                             contains all the receptors of interest. Receptor directory should be 
-                            separate from ligand directory. 
+                            separate from ligand directory. A complete path is ABSOLUTELY required
    Ligand Directory (ld)    This parameter requires the complete path to the directory which 
                             contains all the ligands of interest. Ligand directory should be separate 
-                            from receptor directory.
+                            from receptor directory. A complete path is ABSOLUTELY required
    Output Directory (od)    This parameter requires the complete path to the directory where all the 
-                            outputs from docking will be found and stored in.	
+                            outputs from docking will be found and stored in. A complete path is 
+			    ABSOLUTELY required	
    Mgltools Directory (mgld)   This should be where the mgltools are installed. This should not be 
                             the complete path to where pythonsh file is located or where the 
                             prepare_receptor4.py or prepare_ligand4.py is. This should be the path before 
                             bin and MGLToolsPckgs are seperated. For example if the path to pythonsh is 
                             "/home/users/mgltools/bin/pythonsh", the value for this parameter should
-                            be "/home/users/mgltoos/"
+                            be "/home/users/mgltoos/". A complete path is ABSOLUTELY required.
    center_x (center_x)      This defines the center (x-axis) of the grid box.
    center_y (center_y)      This defines the center (y-axis) of the grid box.
    center_z (center_z)      This defines the center (z-axis) of the grid box.

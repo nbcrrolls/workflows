@@ -13,9 +13,9 @@ Parameter:
         the trajectory pattern is slightly different. For example, *.dcd$$ for (all dcd files) 
         and *.nc$$ for (all nc files).
    d    stands for directory. This should be a complete path that leads to the directory where 
-        all .dcd files are located. 
+        all .dcd files are located. A complete path is ABSOLUTELY required.
    p    stands for topology file. This should be a complete path leads to the toplogy file, for 
-        example, DIRECTORY/XXX.prmtop.
+        example, DIRECTORY/XXX.prmtop. A complete path is ABSOLUTELY required
    pt   topology type. Some of the acceptable values are parm7 for Amber topology files and psf 
         for CHARMM topology files. Default value is parm7
    tt   trajectory type. Some of the acceptable values are dcd for NAMD trajectories and pdb for 

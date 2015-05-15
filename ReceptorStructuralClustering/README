@@ -4,11 +4,16 @@ Version 1.0
 
 Parameters
    dd  Trajectories directory. This should be the complete path to the trajectories directory. 
+       A complete path is ABSOLUTELY required
    dp  Trajectories pattern. Some acceptable variables are .*pdb$$ (all pdb files in the trajectories directory), 
        .*nc$$ (all nc files), .*mdcrd$$ (all mdcrd files), .*dcd$$ (all dcd files), .+size.*$$ (all files that 
-       contains size in the middle), and Size.*$$ (all files that contains Size in the begining)
+       contains size in the middle), and Size.*$$ (all files that contains Size in the begining). 
+       NOTE: if a user is running the workflow on a command prompt, the trajectory pattern is slightly
+       different. For example, *.dcd$$ for (all dcd files) and *.nc$$ for (all nc files).
    p   location of the topology file. This should contain the complete path to the topology file. 
+       for example: /PATH/p53_wt.top A complete path is ABSOLUTELY required.
    wd  Path of the work directory. This is where all the intermediate files and output files are stored. 
+       A complete path is ABSOLUTELY required
    cd  Name of the trajectory file which will contain all of the input trajectories. Default name is 
        _CLUSTER_CAT_ALL.mdcrd
    rd  residue id. When creating the input for gromos clustering, user can choose to keep only certain trajectory 
