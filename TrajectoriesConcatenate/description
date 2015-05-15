@@ -24,14 +24,18 @@ Required Software
    VMD 1.9.1 or above
 Parameters
    pa   Pattern. Default value is .*dcd$$ which will list all the .dcd files in the 
-        assigned directory.
+        assigned directory. NOTE: if a user is running the workflow on a command prompt, the trajectory 
+        pattern is slightly different. For example, *.dcd$$ for (all dcd files) and *.nc$$ for (all nc 
+        files).
 
-   d    Directory. This should be a full path to the directory where all .dcd files are located. 
+   d    Directory. This should be a full path to the directory where all .dcd files are located.
+        NOTE: this is always where the output files (_TRAJ_CONCAT_VMD_(TIME_THE_FILE_IS_CREATED))
+        will be located. 
 
    p    Topology file. This should be a full path of the toplogy file. For example, DIRECTORY/XXX.prmtop.
 
    pt   Topology type. Acceptable values are parm7 for Amber topology files and psf for 
-        CHARMM topology files. Default value is parm.
+        CHARMM topology files. Default value is parm7.
 
    tt   Trajectory type. Acceptable values are dcd for NAMD trajectories and pdb for PDB 
         files. Default value is dcd.
@@ -51,4 +55,8 @@ Overview
 Usage
    There are two ways to run this workflow. One is through the graphic interface. After the workflow 
    is opened, users can double-click the parameters to change their values and press the play button to 
-   start. Another way is to run Kepler via a command line.
+   start. Another way is to run Kepler via a command line. For example:
+   [PATH]/kepler.sh -runwf -nogui -pa -d -p -pt -tt -ot -f -l -s [PATH]/TrajectoriesConcatenate_1.0.kar
+   Another example:
+   /home/kepler.sh -runwf -nogui -pa *.dcd$$ -d /home/input/ -p /home/input/p53_wt.top 
+   -pt parm7 -tt dcd -ot dcd /home/TrajectoriesConcatenate/TrajectoriesConcatenate_1.0.kar

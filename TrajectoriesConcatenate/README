@@ -9,13 +9,15 @@ Purpose
 
 Parameter:
    pa   stands for pattern. Default value is .*dcd$$ which will list all the .dcd files in 
-        the assigned directory.
+        the assigned directory. NOTE: if a user is running the workflow on a command prompt, 
+        the trajectory pattern is slightly different. For example, *.dcd$$ for (all dcd files) 
+        and *.nc$$ for (all nc files).
    d    stands for directory. This should be a complete path that leads to the directory where 
         all .dcd files are located. 
    p    stands for topology file. This should be a complete path leads to the toplogy file, for 
         example, DIRECTORY/XXX.prmtop.
    pt   topology type. Some of the acceptable values are parm7 for Amber topology files and psf 
-        for CHARMM topology files. Default value is parm
+        for CHARMM topology files. Default value is parm7
    tt   trajectory type. Some of the acceptable values are dcd for NAMD trajectories and pdb for 
         PDB files. Default value is dcd.
    ot   output trajectory type. In here, users indicate the type of output trajectories they want. 
