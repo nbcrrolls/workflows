@@ -31,11 +31,19 @@ Parameters
     l  Ligand name.
 
     d  Directory with the small molecule pdb and where all the sequential jobs will be executed.
+       This is also the directory where the input pdb file should be located and where the outputs will be stored.
+
+    n  Number of processors for running gaussian 09
+
+    m  Amount of RAM memory allocated for running gaussian 09 (in gigabyte)
 Overview
     None
 Usage
     There are two ways to run this workflow. One is through the graphic interface. After the workflow is 
 	opened, users can double-click the parameters to change their values and press the play button to start. 
-	Another way is to run Kepler via a command line. It is highly recommended that users check the values 
+	Another way is to run Kepler via a command line. 
+        for example: kepler.sh -runwf -nogui -c -l -d -n -m /PATH/workflow.kar
+        kepler.sh -runwf -nogui -c 0 -l DM0 -d /home/test -n 8 -m 40 /home/LigandParameterizationSerial_1.0.kar
+        It is highly recommended that users check the values 
 	under String Constant before running the workflow to ensure that the commands to execute tleap are 
 	suitable for unique systems.

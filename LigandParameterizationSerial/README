@@ -6,7 +6,11 @@ Version
 Parameters
     c  overall charge of the small ligand. Default is 0 which means the small molecule is neutral.
     l  Ligand name.
-    d  Directory where the small molecule pdb is located and where all the sequential jobs will be executed.
+    d  Directory where the small molecule pdb is located and where all the sequential jobs will be executed.    
+       This is also the directory where the input pdb file should be located and where the outputs will be 
+       stored.
+    n  Number of processors for running gaussian 09
+    m  Amount of RAM memory allocated for running gaussian 09 (in gigabyte)
 
 General
     This workflow parameterizes one ligand in a serial fashion. Output are ligand parameters written in 
