@@ -18,9 +18,11 @@ Parameters
         is .pdb which means that LIGAND_NAME.pdb will turn into LIGAND_NAME
     n   the number of pdb that is going to parameterize in a single run. For example, if user has five small 
         molecules in a single directory that need to parameterize, n will be set to five.
+    np  number of processors allocated for each ligand Gaussian09
+    m   memories in megabyte (MB) allocated for each ligand when running Gaussian09
 
 Input & Output   
-    The inputs for this workflow is multiple pdb files in a single directory and outputs are multiple LIGAND_NAME.
+    The input for this workflow is multiple pdb files in a single directory and outputs are multiple LIGAND_NAME.
     prepc (Amber parameters), LIGAND_NAME.frcmod (Amber check files) and LIGAND_NAME-new.pdb (new pdb files built
     with Amber parameters). Sample inputs and outputs are available and included as a part of the download. 
     They are in the input and output folders, respectively.
