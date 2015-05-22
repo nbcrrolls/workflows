@@ -31,7 +31,9 @@ Parameters
 
     d   directory with the small molecule pdb files. IT MUST BE COMPLETE PATH, for example /home/user/test
 
-    p   pattern of the pdb files. Default is .*pdb$$ which means all the pdb files in the directory.
+    p   pattern of the pdb files. Default is .*pdb$$ which means all the pdb files in the directory. When running
+        this parameter using command line, usuer needs to put an escape character before all the irregular characters.
+        For example: instead of .*pdb$$, user should type .\*pdb\$\$ when entering on a command line.
 
     p2  pattern of the pdb file to be replaced by empty string in order to obtain only the ligand name. Default 
         is .pdb which means that LIGAND_NAME.pdb will turn into LIGAND_NAME
@@ -47,7 +49,11 @@ Overview
     None
 Usage
     There are two ways to run this workflow. One is through the graphic interface. After the workflow is opened, 
-    users can double-click the parameters to change their values and press the play button to start. FOR THIS WORKFLOW,
-    IT IS HIGHLY RECOMMENDED THAT USERS RUN IT WITH THE KEPLER GUI. Another way is  to run Kepler via a command line. 
-    Before starting the workflow, users should check the values in StringConstant inside Parameterization Actor before 
-    running the workflow to ensure that the commands to execute tleap are suitable for unique systems.
+    users can double-click the parameters to change their values and press the play button to start. Another way is 
+    to run Kepler via a command line. Before starting the workflow, users should check the values in StringConstant 
+    inside Parameterization Actor before running the workflow to ensure that the commands to execute tleap are suitable 
+    for unique systems.
+    To run it on command line, for example:
+    /PATH/kepler.sh -runwf -nogui -c -d -p -p2 -n -np -m /PATH/workflow.kar
+    [all in one line] /home/kepler.sh -runwf -nogui -c 0 -d /home/test/input -p .\*pdb\$\$ -p2 .pdb -n 5 -np 2
+    -m 1000 /home/test/LigandParameterizationParallel_1.0.kar
