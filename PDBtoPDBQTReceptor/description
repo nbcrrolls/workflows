@@ -36,7 +36,7 @@ Usage
     There are two ways to run this workflow. One is through the graphic interface. After the workflow is 
 	opened, users can double-click the parameters to change their values and press the play button to start. 
 	Another way is to run Kepler via a command line:
-        kepler.sh -runwf -nogui -i -o -Path /PATH/PDBtoPDBQTReceptor_1.0.kar
+        kepler.sh -runwf -nogui -redirectgui /PATH/ -i -o -Path /PATH/PDBtoPDBQTReceptor_1.0.kar
         such as:
-        [All in one line] /home/kepler.sh -runwf -nogui -i /home/p53_wt.pdb -o p53_wt -Path /home/outputs
-        /home/PDBtoPDBQTReceptor_1.0.kar
+        [All in one line] /home/kepler.sh -runwf -nogui -redirectgui /home/ -i /home/p53_wt.pdb -o p53_wt 
+	-Path /home/output /home/PDBtoPDBQTReceptor_1.0.kar
