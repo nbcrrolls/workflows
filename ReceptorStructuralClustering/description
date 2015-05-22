@@ -68,8 +68,14 @@ Overview
 Usage
    There are two ways to run this workflow. One is through the graphic interface. After the workflow is opened, 
    users can double-click the parameters to change their values and press the play button to start. Another way 
-   is to run Kepler via a command line. It is recommended to run the clustering workflow from a command line, for 
-   example: /PATH/./kepler.sh -runkar -nogui -dd -dp -p -wd -cd -rd -ac -as -f -l -s -cf PATH_TO _KAR/kar_file 
+   is to run Kepler via a command line. IT IS HIGHLY RECOMMANDED TO RUN THIS WORKFLOW USING THE KEPLER GUI.
+   To run the workflow using GUI, start the kepler.sh file from where user installed Kepler by typing 
+
+   /PATH/kepler.sh 
+  
+   in a terminal. For more information, please revisit the Kepler project website.
+   To run the clustering workflow using command line, for example: 
+   /PATH/./kepler.sh -runwf -nogui -dd -dp -p -wd -cd -rd -ac -as -f -l -s -cf PATH_TO _KAR/kar_file 
    When using default values, a user does not need to include the corresponding flags when typing in command prompt.
    Here is an example run:
    [all in one line] Kepler -runwf -nogui -dd /home/input/ -p /home/input/p53_wt.top -wd /home/output/ -dp *.dcd$$ 
