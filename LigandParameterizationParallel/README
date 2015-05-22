@@ -11,15 +11,15 @@ Purpose
 
 Parameters
     c   charge of the small molecules. All the small molecules have to have the same charges. Default is 0 which 
-        means all the small molecules are neutral.
-    d   directory of the small molecule pdb files.
+        means all the small molecules are neutral. 
+    d   directory of the small molecule pdb files. IT MUST INCLUDE THE COMPLETE PATH
     p   pattern of the pdb files. Default is .*pdb$$ which means all the pdb files in the directory.
     p2  pattern of the pdb file to be replaced by empty string in order to obtain only the ligand name. Default 
         is .pdb which means that LIGAND_NAME.pdb will turn into LIGAND_NAME
     n   the number of pdb that is going to parameterize in a single run. For example, if user has five small 
-        molecules in a single directory that need to parameterize, n will be set to five.
-    np  number of processors allocated for each ligand Gaussian09
-    m   memories in megabyte (MB) allocated for each ligand when running Gaussian09
+        molecules in a single directory that need to parameterize, n will be set to 5.
+    np  number of processors allocated for each ligand Gaussian09, for example, 2
+    m   memories in megabyte (MB) allocated for each ligand when running Gaussian09, for example, 1000
 
 Input & Output   
     The input for this workflow is multiple pdb files in a single directory and outputs are multiple LIGAND_NAME.

@@ -27,9 +27,9 @@ Required Software
     AmberTools 12 or above 
 Parameters
     c   charge of the small molecules. All the small molecules must have the same charges. Default is 0 which 
-        means all the small molecules are neutral.
+        means all the small molecules are neutral. for example, 0
 
-    d   directory with the small molecule pdb files.
+    d   directory with the small molecule pdb files. IT MUST BE COMPLETE PATH, for example /home/user/test
 
     p   pattern of the pdb files. Default is .*pdb$$ which means all the pdb files in the directory.
 
@@ -37,11 +37,11 @@ Parameters
         is .pdb which means that LIGAND_NAME.pdb will turn into LIGAND_NAME
 
     n   the number of pdbs to parameterize in a single run. For example, if user has five small molecules 
-	    in a single directory that need to parameterize, n will be set to five.
+	    in a single directory that need to parameterize, n will be set to 5. 
 
-    np  number of processors allocated for each ligand Gaussian09
+    np  number of processors allocated for each ligand Gaussian09, for example 2
 
-    m   memories in megabyte (MB) allocated for each ligand when running Gaussian09
+    m   memories in megabyte (MB) allocated for each ligand when running Gaussian09, for example 1000
 
 Overview
     None
