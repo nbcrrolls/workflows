@@ -1,0 +1,3 @@
+#!/bin/sh
+module load amber
+mpirun -v -np 8 /opt/amber/bin//pmemd.MPI -O -i /oasis/scratch/comet/pieong/temp_project/MD_Test_Oct/confDir/min1_switch.conf.usr -o /oasis/scratch/comet/pieong/temp_project/MD_Test_Oct/r175h_stictic/min1.out -p /oasis/scratch/comet/pieong/temp_project/MD_Test_Oct/r175h_stictic/r175h_stictic.top -c /oasis/scratch/comet/pieong/temp_project/MD_Test_Oct/r175h_stictic/r175h_stictic.crd -r /oasis/scratch/comet/pieong/temp_project/MD_Test_Oct/r175h_stictic/min1.rst -ref /oasis/scratch/comet/pieong/temp_project/MD_Test_Oct/r175h_stictic/r175h_stictic.crd

@@ -1,0 +1,3 @@
+#!/bin/sh
+module load amber
+/opt/amber/bin//cpptraj -i /oasis/scratch/comet/pieong/temp_project/MD_Test_Oct/r175h_stictic/md5_Output1/rmsd_analysis_prod1.sh

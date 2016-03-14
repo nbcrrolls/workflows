@@ -1,0 +1,78 @@
+
+Static FFT Slab Distribution:
+
+  FFT slabs assigned to    8 tasks
+  Maximum of    9 xy slabs per task
+  Maximum of    9 zx slabs per task
+  Count of FFT xy slabs assigned to each task:
+       9   9   9   9   9   9   9   9
+  Count of FFT xz slabs assigned to each task:
+       9   9   9   9   9   9   9   9
+
+Image Distribution at run step       0:
+
+  Count of images assigned to each task:
+         3341     3341     3342     3341     3341     3342     3341     3342
+
+Atom Distribution No.     1 at run step       0:
+
+  Count of atoms assigned to each task:
+         3363     3351     3347     3369     3282     3357     3366     3296
+
+Atom Distribution No.     2 at run step   10067:
+
+  Count of atoms assigned to each task:
+         3028     3191     3297     3389     4239     3210     3245     3132
+
+Major Routine Parallel Profiling - NonSetup CPU Seconds:
+
+           D                                                              
+           a                                                              
+           t                                                              
+           a                              D                               
+           D         N                    i                               
+           i         o                    h                               
+           s         n             A      e      S      R      O         T
+   T       t         B      B      n      d      h      u      t         o
+   a       r         o      o      g      r      a      n      h         t
+   s       i         n      n      l      a      k      M      e         a
+   k       b         d      d      e      l      e      D      r         l
+------------------------------------------------------------------------------
+   0    17.2     470.0    0.3    4.3   22.0   24.2    0.0    7.8     545.8
+   1    45.9     481.4    0.2    2.9   15.5    0.0    0.0    0.0     546.0
+   2    47.6     491.2    0.1    1.2    6.0    0.0    0.0    0.0     546.0
+   3    44.6     500.9    0.0    0.1    0.4    0.0    0.0    0.0     546.0
+   4    46.4     499.0    0.0    0.1    0.3    0.0    0.0    0.0     546.0
+   5    48.0     495.6    0.0    0.4    1.9    0.0    0.0    0.0     546.0
+   6    46.3     493.8    0.1    1.0    4.9    0.0    0.0    0.0     546.0
+   7    47.3     479.6    0.2    3.2   15.8    0.0    0.0    0.0     546.0
+------------------------------------------------------------------------------
+ avg    42.9     488.9    0.1    1.6    8.3    3.0    0.0    1.0     546.0
+ min    17.2     470.0    0.0    0.1    0.3    0.0    0.0    0.0     545.8
+ max    48.0     500.9    0.3    4.3   22.0   24.2    0.0    7.8     546.0
+ std     9.8      10.1    0.1    1.5    7.7    8.0    0.0    2.6       0.1
+------------------------------------------------------------------------------
+
+PME NonBond Parallel Profiling - NonSetup CPU Seconds:
+
+                     D                           
+           P         i         R                 
+           a         r         e      L          
+           i         e         c      o          
+           r         c         i      a         T
+   T       l         t         p      d         o
+   a       i         F         F      B         t
+   s       s         r         r      a         a
+   k       t         c         c      l         l
+-------------------------------------------------
+   0    11.3     375.4      81.2    0.0     467.9
+   1    12.0     387.6      79.5    0.0     479.2
+   2    12.2     397.1      79.9    0.0     489.1
+   3    13.0     411.0      74.7    0.0     498.7
+   4    13.5     405.8      77.8    0.0     497.0
+   5    11.4     399.6      82.5    0.0     493.5
+   6    12.7     400.1      78.9    0.0     491.7
+   7    12.1     385.3      80.1    0.0     477.4
+-------------------------------------------------
+ avg    12.3     395.2      79.3    0.0     486.8
+-------------------------------------------------

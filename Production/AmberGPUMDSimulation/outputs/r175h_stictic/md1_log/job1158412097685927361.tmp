@@ -1,0 +1,3 @@
+#!/bin/sh
+module load cuda/6.5
+/share/apps/gpu/amber/pmemd.cuda -O -i /oasis/scratch/comet/pieong/temp_project/MD_Test_Oct/confDir/md1_switch.conf.usr -o /oasis/scratch/comet/pieong/temp_project/MD_Test_Oct/r175h_stictic/md1_switch.out -p /oasis/scratch/comet/pieong/temp_project/MD_Test_Oct/r175h_stictic/r175h_stictic.top -c /oasis/scratch/comet/pieong/temp_project/MD_Test_Oct/r175h_stictic/min5.rst -r /oasis/scratch/comet/pieong/temp_project/MD_Test_Oct/r175h_stictic/md1.rst -x /oasis/scratch/comet/pieong/temp_project/MD_Test_Oct/r175h_stictic/md1.nc -ref /oasis/scratch/comet/pieong/temp_project/MD_Test_Oct/r175h_stictic/min5.rst

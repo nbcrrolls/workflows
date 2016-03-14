@@ -1,0 +1,74 @@
+
+CPPTRAJ: Trajectory Analysis. V15.00
+    ___  ___  ___  ___
+     | \/ | \/ | \/ | 
+    _|_/\_|_/\_|_/\_|_
+
+| Date/time: 01/30/16  16:50:38
+| Available memory: 124109 MB
+
+INPUT: Reading Input from file /oasis/scratch/comet/pieong/temp_project/MD_Test_Oct/r175h_stictic/rmsd_analysis_equili1.sh
+  [parm r175h_stictic.top]
+	Reading 'r175h_stictic.top' as Amber Topology
+Warning: Could not determine atomic number from mass (3.000000) [D1  ]
+Warning: Could not determine atomic number from name [D1  ]
+Warning: Could not determine atomic number from mass (3.000000) [D2  ]
+Warning: Could not determine atomic number from name [D2  ]
+Warning: Could not determine atomic number from mass (3.000000) [D3  ]
+Warning: Could not determine atomic number from name [D3  ]
+Warning: Could not determine atomic number from mass (3.000000) [D4  ]
+Warning: Could not determine atomic number from name [D4  ]
+  [trajin md2.nc]
+	Reading 'md2.nc' as Amber NetCDF
+  [reference md1.rst]
+	Reading 'md1.rst' as Amber Restart
+  [rmsd reference @CA out md2_rmsd.txt]
+	Reference mask: [@CA](194)
+    RMSD: (@CA), reference is "md1.rst" (@CA), with fitting.
+  [run]
+---------- RUN BEGIN -------------------------------------------------
+
+PARAMETER FILES:
+ 0: 'r175h_stictic.top', 26731 atoms, 8091 res, box: Orthogonal, 7898 mol, 7895 solvent, 500 frames
+
+INPUT TRAJECTORIES:
+ 0: 'md2.nc' is a NetCDF AMBER trajectory, Parm r175h_stictic.top (Orthogonal box) (reading 500 of 500)
+  Coordinate processing will occur on 500 frames.
+
+REFERENCE FRAMES (1 total):
+    0: 'md1.rst', frame 1
+	Active reference frame for distance-based masks is 0
+TIME: Run Initialization took 0.0000 seconds.
+
+BEGIN TRAJECTORY PROCESSING:
+.....................................................
+ACTION SETUP FOR PARM 'r175h_stictic.top' (1 actions):
+  0: [rmsd reference @CA out md2_rmsd.txt]
+	Target mask: [@CA](194)
+Warning: Coordinates are being rotated and box coordinates are present.
+Warning: Unit cell vectors are NOT rotated; imaging will not be possible
+Warning:  after the RMS-fit is performed.
+----- md2.nc (1-500, 1) -----
+ 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100% Complete.
+
+Read 500 frames and processed 500 frames.
+TIME: Trajectory processing: 0.5374 s
+TIME: Avg. throughput= 930.3278 frames / second.
+
+ACTION OUTPUT:
+
+DATASETS:
+  2 data sets:
+	md1.rst:1 "default_name" (reference), size is 1, refindex 0 (26731 atoms)
+	RMSD_00001 "RMSD_00001" (double, rms), size is 500
+
+DATAFILES:
+  md2_rmsd.txt (Standard Data File):  RMSD_00001
+---------- RUN END ---------------------------------------------------
+TIME: Total execution time: 1.0795 seconds.
+--------------------------------------------------------------------------------
+To cite CPPTRAJ use:
+Daniel R. Roe and Thomas E. Cheatham, III, "PTRAJ and CPPTRAJ: Software for
+  Processing and Analysis of Molecular Dynamics Trajectory Data". J. Chem.
+  Theory Comput., 2013, 9 (7), pp 3084-3095.
+

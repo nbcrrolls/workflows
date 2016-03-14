@@ -1,0 +1,34 @@
+Restrained Heating 250ps NPT MD
+ &cntrl
+   ig = -1,             ! Pseudo-random number generator (random seed based on time)
+   imin = 0,            ! Minimization (No)
+   irest = 1,           ! Restart the Simulation? (Yes)
+   ntx = 5,             ! Read coordinates, velocities, and box
+   cut = 10,            ! Non-bonding Cut-off (10 A)
+   ntc = 2,             ! SHAKE bond length constraints (constrain bonds with H)
+   ntf = 2,             ! SHAKE force evaluation (omit bonds with H)
+                        ! Note: SHAKE set for TIP3P waters
+   tol = 0.00000005,	! equal to the rigid tolerance for NAMD
+   dt = 0.001,		    		! timestep
+   nstlim = 250000,     ! Simulation length (125000 steps or 250 ps)
+   ntwr = 250000,       ! Restart file only at end of run.
+   iwrap = 1,           ! Coordinates to be "wrapped" into primary box (on)   
+   nsnb = 20,		    		! these two parameter is equalivent to stepspercycle
+   ntb = 2,                		! PBC (Constant Pressure)
+   ntp = 1, 				! constant pressure MD (Isotropic position scaling)
+   pres0=1.01325,			! Reference Pressure (1 bar)
+   taup = 2.0,				! Pressure relaxation time (2ps)
+   ntt = 3,				! Temperature Scaling (Langevin dynamics)
+   gamma_ln = 5.0,      ! Collision frequency (1 ps^-1)
+   temp0 = 310.0,	! Reference temperature (310K, physiological temperature)
+   ntr = 1,             ! Harmonic constraints in Cartesian space (On)
+   restraint_wt = 3.0,  ! Positional restraints weight ( 5 kcal/mol-A^2)
+   restraintmask = '!@H=', 		! Restrained atoms (Protein backbone)
+   ioutfm = 1,          ! Trajectory file format (Binary NetCDF)
+   ntpr = 500,         ! Energy save interval (every 5000 steps or 10 ps)
+   ntwx = 500,         ! Coordinate/trajectory save interval (every 5000 steps or 10 ps)
+ /
+ &ewald
+   skinnb = 2.0,           ! equal to pairlistdist (cutoff + skinnb)
+   nbflag = 0,             !
+ /
