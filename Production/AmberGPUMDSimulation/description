@@ -1,0 +1,70 @@
+Name
+    AmberGPUMDSimulation
+Version
+    1.0
+Class
+    workflow
+XML
+    AmberGPUMDSimulation_1.0.xml
+Image
+    AmberGPUMDSimulation_1.0.png
+Tag
+    Amber
+    GPU
+Type
+    MDSimulation
+Director
+    DDF
+Actor
+    usrConfMod
+    Minimization
+    Heating
+    Equilibration
+    Production
+    WaitForSimFinish
+    ProductionRMSD
+Description
+    This workflow runs molecular dynamic (MD) simulations on the Amber GPU code. It can run in
+    different platforms including on a local machine with a single GPU card or on remote GPU
+    clusters. It takes a system's toplogy and coordinate files along with Amber input scripts
+    and runs minimization, equlibration, and simulations all in one go. It also generates
+    energy, temperature, pressure, RMSD plots for analysis purpose.
+Required Software
+    Kepler 2.4 or above
+    bioKepler 1.2 or above
+    Amber15 or above
+    AmberTools 15 or above
+    R 3.2.4 or above
+Parameters
+    ExecutionChoice    This parameter gives the option to run same workflow either on a local
+                       machine or in a GPU cluster.
+    NP                 The number of CPU processors for the minimization steps. It is the same
+                       number of processors for each of the step.
+    CMPD               The folder name containing the topology and coordinate files. The folder
+                       name needs to match the stem name of the topology and coordinate file.
+    AMBERHOME_local    $AMBERHOME/bin on your local machine. This should be the path that points
+                       to where pmemd.MPI is located.
+    inputFolder        The inputFolder path on your local machine. It is the directory where the
+                       confDir and CMPD folder is located. An absolute path is required.
+    TargetHost         The remote cluster login.
+    IdentityFile       The identity file (id_rsa) that allows remote access. A complete and
+                       absolute path is required.
+    remoteDir          Work Directory on remote GPU cluster. A complete and absolute path is
+                       required.
+    numOfJobs          This parameter will allow "n" production jobs to be submitted in parallel
+                       for a single system. This parameter is only for job submissions in GPU
+                       clusters
+    AMBERHOME_cpu      $AMBERHOME on remote cluster on CPU nodes.
+    AMBERHOME_gpu      $AMBERHOME on remote cluster on GPU nodes.
+    cpuModulesToLoad   Modules dynamically modifies a user’s execution environment to configure
+                       the shell for an application.
+    gpuModulesToLoad   The parameter “gpuModulesToload” prepares execution environment on GPU
+                       nodes on a cluster.
+    t-cpu              Time requests for each of the minimization step in the remote cluster.
+    t-gpu              Time requests for the heating step, equilibration steps and production step
+                       in the remote cluster.
+Overview
+    None
+Usage
+    There are multiple ways to execute this workflow. For more information on how to execute this
+    workflow on different platforms, please consult the user guide/manual.

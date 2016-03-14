@@ -1,0 +1,63 @@
+AmberGPUMDSimulation
+
+Version
+    1.0
+
+Purpose
+    Molecular dynamics (MD) simulations are electronic microscopes that allow researchers to
+    study atomic details of biological systems (1). Applying Newton’s laws of motion, MD
+    simulations can predict atom movements following a time series. MD simulations usually
+    involve four steps: minimization, heating, equilibration, and production, and the purpose 
+    of this Amber GPU MD simulation workflow is to automate these processes using graphics
+    processing units (GPUs). This workflow can be used for all-atom molecular dynamic
+    simulations, which involve five steps of minimization, one step of heating, three steps of
+    equilibration, and one or more instances of production. MD simulations simulate atomic
+    movements to help scientists predict reaction mechanisms, identify druggable pockets, and
+    understand allosteric regulation (1). Moreover, due to the simple nature of this workflow,
+    the workflow can be used as a starting point for learning how to run MD simulations. It 
+    can also be used a starting point developing workflows that involve more complicated 
+    aspects MD. It is our hope that this workflow will enable improved dissemination and 
+    reproducibility in the field of molecular dynamics.
+
+Parameters
+    ExecutionChoice    This parameter gives the option to run same workflow either on a local 
+		       machine or in a GPU cluster.
+    NP   	       The number of CPU processors for the minimization steps. It is the same 
+ 		       number of processors for each of the step.
+    CMPD 	       The folder name containing the topology and coordinate files. The folder 
+		       name needs to match the stem name of the topology and coordinate file.
+    AMBERHOME_local    $AMBERHOME/bin on your local machine. This should be the path that points 
+		       to where pmemd.MPI is located.
+    inputFolder        The inputFolder path on your local machine. It is the directory where the
+		       confDir and CMPD folder is located. An absolute path is required.
+    TargetHost         The remote cluster login.
+    IdentityFile       The identity file (id_rsa) that allows remote access. A complete and 
+		       absolute path is required.
+    remoteDir          Work Directory on remote GPU cluster. A complete and absolute path is 
+		       required.
+    numOfJobs  	       This parameter will allow "n" production jobs to be submitted in parallel 
+		       for a single system. This parameter is only for job submissions in GPU
+		       clusters
+    AMBERHOME_cpu      $AMBERHOME on remote cluster on CPU nodes.
+    AMBERHOME_gpu      $AMBERHOME on remote cluster on GPU nodes.
+    cpuModulesToLoad   Modules dynamically modifies a user’s execution environment to configure 
+		       the shell for an application.
+    gpuModulesToLoad   The parameter “gpuModulesToload” prepares execution environment on GPU 
+                       nodes on a cluster.
+    t-cpu	       Time requests for each of the minimization step in the remote cluster.
+    t-gpu	       Time requests for the heating step, equilibration steps and production step 
+		       in the remote cluster.
+
+Input & Output
+    The input for this workflow is a set of directories include the MD simulation input scripts,
+    system topology and coordinate files. Output files are list of plots, simulation trajectories,
+    intermediate files, restart files, etc. Sample inputs and outputs are available and included 
+    as a part of the download. They are in the inputs and outputs folders, respectively.
+
+Operating System Requirment
+    Linux
+
+Caution
+    An extensive user guide/manual comes along with this workflow. For any question, please 
+    consult the manual. Also, there is an appendix section at the end of the maunaul where it
+    answer some of the questions users may have if the workflow fails to run. 
