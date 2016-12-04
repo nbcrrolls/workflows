@@ -1,0 +1,66 @@
+TargetHost: a5yeung@comet.sdsc.edu
+Scheduler: SLURM
+AMBERHOME_CPU: /opt/amber/bin
+AMBERHOME_GPU: /share/apps/gpu/amber
+cpuModulesToLoad: module load amber
+gpuModulesToLoad: module load cuda/6.5
+t_cpu: 04:00:00
+t_gpu: 18:00:00
+CPUqueue: compute
+GPUqueue: gpu-shared
+remoteDir: /home/a5yeung/testRun1
+projectAccount: sds162
+
+Random Number Seed used in Heating simulation: 552478
+
+Random Number Seed used in Equilibration1 simulation: 953499
+
+Random Number Seed used in Equilibration2 simulation: 435829
+
+Random Number Seed used in Equilibration3 simulation: 585040
+
+Production1:
+Production1 output folder: /home/a5yeung/testRun1/TestInput1/p53_zinc07135644/md5_Output1
+Random Number Seed used in Production1 simulation: 241619
+
+
+Production2:
+Production2 output folder: /home/a5yeung/testRun1/TestInput1/p53_zinc07135644/md5_Output2
+Random Number Seed used in Production2 simulation: 171975
+
+
+Production3:
+Production3 output folder: /home/a5yeung/testRun1/TestInput1/p53_zinc07135644/md5_Output3
+Random Number Seed used in Production3 simulation: 740887
+
+Amber Version:
+pmemd.cuda: Version 14.0
+
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2014 NVIDIA Corporation
+Built on Thu_Jul_17_21:41:27_CDT_2014
+Cuda compilation tools, release 6.5, V6.5.12
+
+
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                24
+On-line CPU(s) list:   0-23
+Thread(s) per core:    1
+Core(s) per socket:    12
+Socket(s):             2
+NUMA node(s):          2
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 63
+Stepping:              2
+CPU MHz:               2500.109
+BogoMIPS:              4999.28
+Virtualization:        VT-x
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              256K
+L3 cache:              30720K
+NUMA node0 CPU(s):     0,2,4,6,8,10,12,14,16,18,20,22
+NUMA node1 CPU(s):     1,3,5,7,9,11,13,15,17,19,21,23
