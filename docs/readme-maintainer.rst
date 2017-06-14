@@ -13,7 +13,7 @@ Users of the repository please see the main `README~_
    + workflow PNG image 
    + workflow kar file 
    + text file ``description`` which contains a describing  of the workflow. 
-     Please see a section below describing the file format and an example ``templates/description-workflow`` file.
+     Please see a section below describing the file format and an example `description-workflow`_ file.
    + README file with any additional information about the workflow.
      If there are any extra files intended for download with the workflow  
      they must be listed in README. 
@@ -49,7 +49,7 @@ Users of the repository please see the main `README~_
    + **Overview** any addition information about the workflow specifics.  Default value is None
    + **Usage** a short description of how to use the workflow
 
-   See an example ``templates/description-workflow`` file.
+   See an example `description workflow`_ file.
 
 
 #. **Versioning convention**
@@ -109,3 +109,4 @@ Adding a new workflow
 
 .. _listing.rst: listing.rst
 .. _README: https://github.com/nbcrrolls/workflows
+.. _description workflow: templates/description-workflow
