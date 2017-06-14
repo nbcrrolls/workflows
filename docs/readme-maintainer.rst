@@ -13,7 +13,7 @@ Users of the repository please see the main `README~_
    + workflow PNG image 
    + workflow kar file 
    + text file ``description`` which contains a describing  of the workflow. 
-     Please see a section below describing the file format and an example `description-workflow`_ file.
+     Please see a section below describing the file format and an example `description workflow`_ file.
    + README file with any additional information about the workflow.
      If there are any extra files intended for download with the workflow  
      they must be listed in README. 
