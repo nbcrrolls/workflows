@@ -1,4 +1,5 @@
-.. highlight:: rest
+
+Keeps track of the names for workflows, actors, types and tags.
 
 **Workflows** ::  
 

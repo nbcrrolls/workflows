@@ -1,4 +1,3 @@
-.. highlight:: rest
 
 **Detatch subdirectory into a new repo** 
  
