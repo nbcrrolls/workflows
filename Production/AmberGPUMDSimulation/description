@@ -1,13 +1,13 @@
 Name
     AmberGPUMDSimulation
 Version
-    1.0
+    1.1
 Class
     workflow
 XML
-    AmberGPUMDSimulation_1.0.xml
+    AmberGPUMDSimulation_1.1.xml
 Image
-    AmberGPUMDSimulation_1.0.png
+    AmberGPUMDSimulation_1.1.png
 Tag
     Amber
     GPU
